@@ -4,11 +4,11 @@ package com.example.brickbreak.engine;
  */
 public class AABB {
 
-	private int x;
-	private int y;
+	private int mX;
+	private int mY;
 	
-	private int width;
-	private int height;
+	private int mWidth;
+	private int mHeight;
 	
 	//-----Constructors
 	AABB() {
@@ -17,42 +17,42 @@ public class AABB {
 	
 	//Creates a new AABB with the origin(x,y) the top left corner
 	AABB(int x, int y, int width, int height) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		mX = x;
+		mY = y;
+		mWidth = width;
+		mHeight = height;
 	}
 
 	//-----Getters/Setters
 	public int getX() {
-		return x;
+		return mX;
 	}
 
 	public void setX(int x) {
-		this.x = x;
+		mX = x;
 	}
 
 	public int getY() {
-		return y;
+		return mY;
 	}
 
 	public void setY(int y) {
-		this.y = y;
+		mY = y;
 	}
 
 	public int getWidth() {
-		return width;
+		return mWidth;
 	}
 
 	public void setWidth(int width) {
-		this.width = width;
+		mWidth = width;
 	}
 
 	public int getHeight() {
-		return height;
+		return mHeight;
 	}
 
 	public void setHeight(int height) {
-		this.height = height;
+		mHeight = height;
 	}
 }
