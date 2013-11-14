@@ -56,19 +56,19 @@ public class RegionMap {
 	}
 	
 	//Determines where (node) the object lives. -1 means that the object belongs to its parent node and not the child.
-	private int getIndex(AABB aabb) {
+	private int getIndex(Rectangle rectangle) {
 		int index = -1;
 		//Finds the vertical midpoint
 		double mVerticalMidpoint = mBounds.getmX() + (mBounds.getWidth() / 2);
 		//Finds the horizontal midpoint
 		double mHorizontalMidpoint = mBounds.getY() + (mBounds.getHeight() / 2);
 		//Checks to see if the object is entirely in the top two quadrants
-		boolean mTopQuadrant = (aabb.getY() < mHorizontalMidpoint && aabb.getY() + aabb.getHeight() < mHorizontalMidpoint);
+		boolean mTopQuadrant = (rectangle.getY() < mHorizontalMidpoint && rectangle.getY() + rectangle.getHeight() < mHorizontalMidpoint);
 		//Checks to see if the object is entirely in the bottom two quadrants
-		boolean mBottomQuadrant = (aabb.getY() > mHorizontalMidpoint);
+		boolean mBottomQuadrant = (rectangle.getY() > mHorizontalMidpoint);
 		
 		//Checks to see if the object is entirely in the left quadrant
-		if(aabb.getX() < mVerticalMidpoint && aabb.getX() + aabb.getWidth() < mVerticalMidpoint) {
+		if(rectangle.getX() < mVerticalMidpoint && rectangle.getX() + rectangle.getWidth() < mVerticalMidpoint) {
 			if (mTopQuadrant) {
 				index = 1;
 			}
@@ -77,7 +77,7 @@ public class RegionMap {
 			}
 		}
 		//Checks to see if the object is entirely in the right quadrant
-		else if(aabb.getX() > mVerticalMidpoint) {
+		else if(rectangle.getX() > mVerticalMidpoint) {
 			if (mTopQuadrant) {
 				index = 0;
 			}
@@ -96,6 +96,21 @@ public class RegionMap {
 	//Deletes an object from the RegionMap
 	public void delete(Brick brick) {
 		//TODO Implement delete
+	}
+	
+	//Returns a given list of objects that are in the given brick's region
+	public List retrieve(List returnObjects, Rectangle  rectangle) {
+		int index = getIndex(rectangle);
+		
+		//Recursive, goes through each child until it reaches the last child or the object does not fit perfectly
+		//in any region partitioned by the children
+		if (index !=-1 && mNodes[0] != null) {
+			mNodes[index].retrieve(returnObjects, rectangle);
+		}
+		//Adds all the objects belonging to the found region to the list to be returned
+		returnObjects.addAll(mObjects);
+		
+		return returnObjects;
 	}
 	//TODO Investigate hash table for constant time access to any brick
 }
