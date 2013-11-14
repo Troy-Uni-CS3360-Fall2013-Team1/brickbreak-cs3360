@@ -55,7 +55,7 @@ public class RegionMap {
 		
 	}
 	
-	//Determines where (node) the object lives. -1 means that the object belongs to its parent node and not the child.
+	//Determines where the object lives. -1 means that the object belongs to its parent node and not the child.
 	private int getIndex(Rectangle rectangle) {
 		int index = -1;
 		//Finds the vertical midpoint
