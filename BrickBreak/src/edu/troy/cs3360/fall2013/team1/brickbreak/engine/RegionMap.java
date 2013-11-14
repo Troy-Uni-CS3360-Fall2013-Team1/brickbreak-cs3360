@@ -1,6 +1,23 @@
-package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
-/*
- * This class stores references to brick objects. It organizes them based on where they belong in a partitioned space.
+/**
+ * This class organizes objects in a 2D space.
+ * <p>
+ * Objects are organized in a tree structure with four
+ * children. Each children represents a region from 0-3
+ * going counterclockwise from the top right region.
+ * <p>
+ * Objects of type rectangle are inserted into the tree.
+ * If any one node holds more than MAX_OBJECTS, then the
+ * node is split into another tree.
+ * 
+ * @author Dexter Parks
+ * @author Justin Williams
+ * @author Sarah
+ * @version 1.0
+ * @since 2013-11-14
+ */
+
+package edu.troy.cs3360.fall2013.team1.brickbreak.engine;/*
+
  * They are number 0, 1, 2, 3 counter clockwise.
  * A list of objects can be obtained via the INSERTNAMEOFFUNCTIONTORETRIEVEOBJECTS for any given space
  */
@@ -20,7 +37,14 @@ public class RegionMap {
 	private RegionMap[] mNodes;
 	
 	
-	
+	/**
+	 * Constructor used to create a new region split in 4
+	 * <p>
+	 * This is the constructor primarily used.
+	 * 
+	 * @param level Corresponds to the current depth of the tree
+	 * @param bounds Rectangle object that defines a region for the tree
+	 */
 	RegionMap(int level, Rectangle bounds) {
 		mLevel = level;
 		mBounds = bounds;
@@ -31,6 +55,11 @@ public class RegionMap {
 	}
 	
 	//Purges the tree of all nodes/objects
+	/**
+	 * Clears all nodes in the tree.
+	 * 
+	 * @return void
+	 */
 	public void clear() {
 		mObjects.clear();
 		for (int i = 0; i < mObjects.size(); i++) {
@@ -42,6 +71,15 @@ public class RegionMap {
 	}
 	
 	//Once a node reaches the maximum allowed children, it then splits the region into a 4 sub-regions
+	/**
+	 * Splits a region into 4 sub regions.
+	 * If a region holds more than MAX_OBJECTS and is not at the maximum
+	 * depth, then a new region is created.
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @return void
+	 */
 	private void split() {
 		int mSubWidth = mBounds.getWidth() / 2;
 		int mSubHeight = mBounds.getHeight() / 2;
@@ -55,7 +93,15 @@ public class RegionMap {
 		
 	}
 	
-	//Determines where the object lives. -1 means that the object belongs to its parent node and not the child.
+	/**
+	 * Determines where the object lives. -1 means that the object belongs
+	 * to its parent node and not the child.
+	 * 
+	 * @author Dexter Parks
+	 * 
+	 * @param rectangle This is the object to locate in the RegionMap
+	 * @return
+	 */
 	private int getIndex(Rectangle rectangle) {
 		int index = -1;
 		//Finds the vertical midpoint
@@ -88,18 +134,38 @@ public class RegionMap {
 		return index;
 	}
 	
-	//Inserts a new object into the map
+	/**
+	 * This function inserts a new object into the map.
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @param brick This is the object to be inserted into the map
+	 */
 	public void insert(Brick brick) {
 		//TODO Implement insert
 		//Return int corresponding to a region key?
 	}
 	
-	//Deletes an object from the RegionMap
+	/**
+	 * This function removes an object from the map
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @param brick
+	 */
 	public void delete(Brick brick) {
 		//TODO Implement delete
 	}
 	
-	//Returns a given list of objects that are in the given brick's region
+	/**
+	 * Returns a given list of objects that are in the given brick's region
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @param returnObjects This is the list of objects that are in the same space as the given object
+	 * @param rectangle This is the object to check which objects are in its region
+	 * @return returnObjects This is the list of objects that are in the same space as the given object
+	 */
 	public List retrieve(List returnObjects, Rectangle  rectangle) {
 		int index = getIndex(rectangle);
 		
