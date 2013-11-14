@@ -1,4 +1,4 @@
-package com.example.brickbreak.engine;
+package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 /*
  * This class stores references to brick objects. It organizes them based on where they belong in a partitioned space.
  * They are number 0, 1, 2, 3 counter clockwise.

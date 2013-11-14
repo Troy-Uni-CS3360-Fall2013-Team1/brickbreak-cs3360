@@ -1,4 +1,4 @@
-package com.example.brickbreak.engine;
+package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 /*
  * This Class defines a box surrounding an object that is aligned to the x and y axes.
  * Its x and y coordinates are aligned to the x and y axes of the current plane.

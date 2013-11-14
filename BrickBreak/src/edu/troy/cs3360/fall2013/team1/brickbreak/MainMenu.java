@@ -1,4 +1,6 @@
-package com.example.brickbreak;
+package edu.troy.cs3360.fall2013.team1.brickbreak;
+
+import com.example.brickbreak.R;
 
 import android.os.Bundle;
 import android.app.Activity;
