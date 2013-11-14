@@ -36,12 +36,11 @@ public class RegionMap {
 	private Rectangle mBounds;
 	private RegionMap[] mNodes;
 	
-	
 	/**
-	 * Constructor used to create a new region split in 4
-	 * <p>
-	 * This is the constructor primarily used.
+	 * Class Constructor used to create a new region split in 4
 	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
 	 * @param level Corresponds to the current depth of the tree
 	 * @param bounds Rectangle object that defines a region for the tree
 	 */
