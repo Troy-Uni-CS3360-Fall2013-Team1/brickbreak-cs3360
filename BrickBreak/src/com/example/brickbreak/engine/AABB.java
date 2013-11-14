@@ -1,6 +1,7 @@
 package com.example.brickbreak.engine;
 /*
- * This Class defines a box surrounding an object. Its x and y coordinates are aligned to the x and y axes of the current plane.
+ * This Class defines a box surrounding an object that is aligned to the x and y axes.
+ * Its x and y coordinates are aligned to the x and y axes of the current plane.
  */
 public class AABB extends Rectangle {
 
