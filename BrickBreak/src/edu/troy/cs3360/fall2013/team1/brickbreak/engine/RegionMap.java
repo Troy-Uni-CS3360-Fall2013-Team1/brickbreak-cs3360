@@ -91,6 +91,7 @@ public class RegionMap {
 	//Inserts a new object into the map
 	public void insert(Brick brick) {
 		//TODO Implement insert
+		//Return int corresponding to a region key?
 	}
 	
 	//Deletes an object from the RegionMap
