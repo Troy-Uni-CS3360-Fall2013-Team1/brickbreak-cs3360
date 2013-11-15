@@ -1,3 +1,8 @@
+package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class organizes objects in a 2D space.
  * <p>
@@ -10,20 +15,9 @@
  * node is split into another tree.
  * 
  * @author Dexter Parks
- * @author Justin Williams
- * @author Sarah
  * @version 1.0
  * @since 2013-11-14
  */
-
-package edu.troy.cs3360.fall2013.team1.brickbreak.engine;/*
-
- * They are number 0, 1, 2, 3 counter clockwise.
- * A list of objects can be obtained via the INSERTNAMEOFFUNCTIONTORETRIEVEOBJECTS for any given space
- */
-import java.util.ArrayList;
-import java.util.List;
-
 public class RegionMap {
 
 	//This determines the maximum number of objects inside any region
@@ -104,7 +98,7 @@ public class RegionMap {
 	private int getIndex(Rectangle rectangle) {
 		int index = -1;
 		//Finds the vertical midpoint
-		double mVerticalMidpoint = mBounds.getmX() + (mBounds.getWidth() / 2);
+		double mVerticalMidpoint = mBounds.getX() + (mBounds.getWidth() / 2);
 		//Finds the horizontal midpoint
 		double mHorizontalMidpoint = mBounds.getY() + (mBounds.getHeight() / 2);
 		//Checks to see if the object is entirely in the top two quadrants
@@ -138,11 +132,39 @@ public class RegionMap {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @param brick This is the object to be inserted into the map
+	 * @param rectangle This is the object to be inserted into the map
 	 */
-	public void insert(Brick brick) {
+	public void insert(Rectangle rectangle) {
 		//TODO Implement insert
 		//Return int corresponding to a region key?
+		
+		if (mNodes[0] !=null) {
+			int index = getIndex(rectangle);
+			
+			if (index != -1) {
+				mNodes[index].insert(rectangle);
+				return;
+			}
+		}
+		
+		mObjects.add(rectangle);
+		
+		if (mObjects.size() > MAX_OBJECTS && mLevel < MAX_LEVELS) {
+			if (mNodes[0] == null) {
+				split();
+			}
+			
+			int i = 0;
+			while (i < mObjects.size()) {
+				int index = getIndex((Rectangle) mObjects.get(i));
+				if (index != -1) {
+					mNodes[index].insert((Rectangle) mObjects.remove(i));
+				}
+				else {
+					i++;
+				}
+			}
+		}
 	}
 	
 	/**
