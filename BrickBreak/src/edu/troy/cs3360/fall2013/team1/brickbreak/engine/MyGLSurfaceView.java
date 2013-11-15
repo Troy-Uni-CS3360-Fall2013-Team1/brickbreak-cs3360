@@ -9,7 +9,7 @@ public class MyGLSurfaceView extends GLSurfaceView {
         super(context);
 
         // Set the Renderer for drawing on the GLSurfaceView
-        setRenderer(new MyRenderer());
+        setRenderer(new MtGL20Renderer());
         
         // Create an OpenGL ES 2.0 context
         setEGLContextClientVersion(2);

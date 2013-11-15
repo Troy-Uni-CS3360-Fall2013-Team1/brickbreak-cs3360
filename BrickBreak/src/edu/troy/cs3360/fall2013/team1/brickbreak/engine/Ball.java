@@ -1,9 +1,6 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
-import com.example.brickbreak.engine.AnimatedSprite;
-import com.example.brickbreak.engine.Engine;
-import com.example.brickbreak.engine.Rectangle;
-import com.example.brickbreak.engine.TiledTextureRegion;
+import android.service.wallpaper.WallpaperService.Engine;
 
 
 public class Ball extends AnimatedSprite {

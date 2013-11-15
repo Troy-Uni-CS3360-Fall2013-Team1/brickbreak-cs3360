@@ -20,4 +20,11 @@ public class MtGL20Renderer implements MyGLSurfaceView.Renderer {
     public void onSurfaceChanged(GL10 unused, int width, int height) {
         GLES20.glViewport(0, 0, width, height);
     }
+
+	@Override
+	public void onSurfaceCreated(GL10 gl,
+			javax.microedition.khronos.egl.EGLConfig config) {
+		// TODO Auto-generated method stub
+		
+	}
 }
