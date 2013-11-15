@@ -135,8 +135,7 @@ public class RegionMap {
 	 * @param rectangle This is the object to be inserted into the map
 	 */
 	public void insert(Rectangle rectangle) {
-		//TODO Implement insert
-		//Return int corresponding to a region key?
+		// TODO Return int corresponding to a region key?
 		
 		if (mNodes[0] !=null) {
 			int index = getIndex(rectangle);
