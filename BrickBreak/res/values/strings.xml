@@ -4,5 +4,8 @@
     <string name="app_name">BrickBreak</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="title_activity_score">ScoreActivity</string>
+ 	<string name="Score">Score</string>
+    <string name="Lives"> Lives</string>
+    <string name="Menu">Menu</string>
 </resources>
