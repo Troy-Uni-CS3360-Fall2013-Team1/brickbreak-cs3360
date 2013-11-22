@@ -1,16 +1,16 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
+
 import java.util.Arrays;
 
+public class BrickList<E> {
 
-public class BrickSync<E> {
-	
 	private int size = 0;
-	private static final int Capacity = 20;
+	private static final int DEFAULT_CAPACITY = 20;
 	private Object elements[];
 
-	public BrickSync()
+	public BrickList()
 	{
-		elements = new Object[Capacity];
+		elements = new Object[DEFAULT_CAPACITY];
 		
 	}
 	
