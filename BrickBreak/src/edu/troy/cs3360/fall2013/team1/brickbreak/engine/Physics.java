@@ -37,8 +37,14 @@ public class Physics {
 	 * @version 1.0
 	 * @return void Void
 	 */
+<<<<<<< HEAD
 	public void moveBall() {
 		
+=======
+	public void moveBall(Ball ball) {
+		ball.setXPosition(ball.getXPosition() + ball.getXVelocity());
+		ball.setYPosition(ball.getYPosition() + ball.getYVelocity());
+>>>>>>> master
 	}
 	/**
 	 * Checks to see if the ball is in bounds.
