@@ -11,10 +11,10 @@ package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 public class Rectangle {
 	
 	//-----Data Members
-	int mX;
-	int mY;
-	int mWidth;
-	int mHeight;
+	float mX;
+	float mY;
+	float mWidth;
+	float mHeight;
 	
 	//-----Constructors
 	/**
@@ -24,10 +24,10 @@ public class Rectangle {
 	 * @version 1.0
 	 */
 	Rectangle() {
-		int mX = 0;
-		int mY = 0;
-		int mWidth = 1;
-		int mHeight = 1;
+		mX = 0;
+		mY = 0;
+		mWidth = 1;
+		mHeight = 1;
 	}
 	
 	/**
@@ -40,11 +40,11 @@ public class Rectangle {
 	 * @param width Width of rectangle
 	 * @param height Height of rectangle
 	 */
-	Rectangle(int x, int y, int width, int height) {
-		int mX = x;
-		int mY = y;
-		int mWidth = width;
-		int mHeight = height;
+	Rectangle(float x, float y, float width, float height) {
+		mX = x;
+		mY = y;
+		mWidth = width;
+		mHeight = height;
 	}
 
 	//-----Getters/Setters
@@ -56,7 +56,7 @@ public class Rectangle {
 	 * @version 1.0
 	 * @return int returns the x position
 	 */
-	public int getX() {
+	public float getX() {
 		return mX;
 	}
 
@@ -78,7 +78,7 @@ public class Rectangle {
 	 * @version 1.0
 	 * @return int returns the y position
 	 */
-	public int getY() {
+	public float getY() {
 		return mY;
 	}
 
@@ -100,7 +100,7 @@ public class Rectangle {
 	 * @version 1.0
 	 * @return int returns the width
 	 */
-	public int getWidth() {
+	public float getWidth() {
 		return mWidth;
 	}
 	
@@ -122,7 +122,7 @@ public class Rectangle {
 	 * @version 1.0
 	 * @return int returns the height
 	 */
-	public int getHeight() {
+	public float getHeight() {
 		return mHeight;
 	}
 
