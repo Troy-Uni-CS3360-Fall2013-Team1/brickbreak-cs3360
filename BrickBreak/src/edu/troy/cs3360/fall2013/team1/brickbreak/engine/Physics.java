@@ -20,15 +20,17 @@ public class Physics {
 	}
 	
 	/**
-	 * Checks to see if the two objects collided.
-	 * @param box1
-	 * @param box2
-	 * @return boolean True if the objects collided
+	 * This class accepts a paddle object and a the change in position.
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @param paddle
+	 * @param dx Change in x position.
 	 */
-	public boolean collision(AABB box1, AABB box2) {
-		boolean isCollision = false;
-		return isCollision;
+	public void movePaddle(Paddle paddle, float dx) {
+		paddle.setX(paddle.getX() + dx);
 	}
+	
+	
 	
 	/**
 	 * Moves the ball based on its current velocity.
@@ -46,28 +48,28 @@ public class Physics {
 	 * Checks to see if the ball is in bounds.
 	 * <ul>
 	 * <li>
-	 * 0 = left
+	 * 1 = left
 	 * </li>
 	 * <li>
-	 * 1 = top
+	 * 2 = top
 	 * </li>
 	 * <li>
-	 * 2 = right
+	 * 5 = right
 	 * </li>
 	 * <li>
-	 * 3 = bottom
+	 * 8 = bottom
 	 * </li>
 	 * <li>
-	 * 4 = left/bottom
+	 * 9 = left/bottom
 	 * </li>
 	 * <li>
-	 * 5 = left/top
+	 * 3 = left/top
 	 * </li>
 	 * <li>
-	 * 6 = right/top
+	 * 7 = right/top
 	 * </li>
 	 * <li>
-	 * 7 = right/bottom
+	 * 13 = right/bottom
 	 * </li>
 	 * </ul> 
 	 * @author Dexter Parks
@@ -76,20 +78,38 @@ public class Physics {
 	 * @param boundary
 	 * @return side This integer corresponds to the side that was hit.
 	 */
-	private int checkBounds(AABB ball, Rectangle boundary) {
-		int side;
-		return side;
+	private int checkBounds(AABB aabb, Rectangle box) {
+		int side = 0;
 		
+		//Left side check
+		if (aabb.getX() < box.getX() ) {
+			side = 1;
+		}
+		//Top side check
+		else if(aabb.getY() < box.getY()) {
+			side += 2;
+		}
+		//Right side check
+		else if(aabb.getX() > box.getX() + box.getWidth()) {
+			side += 5;
+		}
+		//Bottom side check
+		else if(aabb.getY() > box.getY() + box.getHeight()) {
+			side += 8;
+		}
+		return side;
 	}
 	
 	/**
-	 * This class accepts a paddle object and a the change in position.
-	 * @author Dexter Parks
-	 * @version 1.0
-	 * @param paddle
-	 * @param dx Change in x position.
+	 * Checks to see if the two objects collided.
+	 * @param box1
+	 * @param box2
+	 * @return boolean True if the objects collided
 	 */
-	public void movePaddle(Paddle paddle, int dx) {
-				
+	public boolean collision(AABB box1, AABB box2) {
+		boolean isCollision = false;
+		return isCollision;
 	}
+	
+	
 }
