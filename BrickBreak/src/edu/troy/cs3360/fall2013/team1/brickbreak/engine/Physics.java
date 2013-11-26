@@ -1,5 +1,6 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
+import java.util.Deque;
 import java.util.Vector;
 
 /**
@@ -85,10 +86,39 @@ public class Physics {
 		return mBallOutOfBounds;
 	}
 	
-	void func(AABB aabb, Rectangle box, int side) {
+	void checkBrickBallCollision(Ball ball, Brick brick) {
 		
 	}
 	
+	void checkBrickBallCollision(Ball ball, Deque<Brick> brickList) {
+		
+		Brick brick = brickList.pop();
+		
+		float mBallLeftEdge = ball.getX();
+		float mBallRightEdge = ball.getX() + ball.getWidth();
+		float mBallTopEdge = ball.getY();
+		float mBallBottomEdge = ball.getY() + ball.getHeight();
+		
+		float mBrickLeftEdge = brick.getX();
+		float mBrickRightEdge = brick.getX() + brick.getWidth();
+		float mBrickTopEdge = brick.getY();
+		float mBrickBottomEdge = brick.getY() + brick.getHeight();
+		
+		//Check X edges
+		if (mBallRightEdge > mBrickLeftEdge && mBallRightEdge < mBrickRightEdge) {
+			
+		} else if(mBallLeftEdge > mBrickLeftEdge && mBallLeftEdge < mBrickRightEdge) {
+			
+		}
+		
+		//Check Y edges
+		if (mBallBottomEdge > mBrickTopEdge && mBallBottomEdge < mBrickBottomEdge) {
+			
+		} else if (mBallTopEdge > mBrickTopEdge && mBallTopEdge < mBrickBottomEdge) {
+			
+		}
+		
+	}
 	
 	/**
 	 * Checks to see if the two objects collided.
