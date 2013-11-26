@@ -1,5 +1,7 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
+import java.util.UUID;
+
 /**
  * This class defines a brick object. It extends a AABB and adds a BrickValue, color, and region id.
  * 
@@ -13,6 +15,7 @@ public class Brick extends AABB {
 	int mBrickValue;
 	Colors mColor;
 	int mRegionNodeID;
+	UUID mBrickID;
 	
 	
 	
@@ -39,6 +42,9 @@ public class Brick extends AABB {
 	 */
 	public Brick(float x, float y, float width, float height) {
 		super(x, y, width, height);
+		mBrickValue = 100;
+		mColor = Colors.Grey;
+		mBrickID = UUID.randomUUID();
 	}
 
 

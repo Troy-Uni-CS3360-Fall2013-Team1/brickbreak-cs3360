@@ -1,5 +1,7 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
+import java.util.Vector;
+
 /**
  * This class handles the movement and collision of all objects.
  * 
@@ -9,6 +11,13 @@ package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
  */
 public class Physics {
 
+	//-----Flags
+	boolean mBallOutOfBounds;		//True if ball fell through the bottom of the map
+	boolean mBrickBroken;			//True if brick broken
+	
+	//-----Data Members
+	Vector<Brick> mBrokenBricks;	//List of bricks broken during this cycle
+	
 	/**
 	 * Default Constructor.
 	 * 
@@ -99,6 +108,11 @@ public class Physics {
 		}
 		return side;
 	}
+	
+	void func(AABB aabb, Rectangle box, int side) {
+		
+	}
+	
 	
 	/**
 	 * Checks to see if the two objects collided.
