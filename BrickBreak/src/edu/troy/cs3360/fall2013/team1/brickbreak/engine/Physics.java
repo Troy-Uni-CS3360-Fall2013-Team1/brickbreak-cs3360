@@ -50,8 +50,8 @@ public class Physics {
 	 * @return void Void
 	 */
 	public void moveBall(Ball ball) {
-		ball.setXPosition(ball.getXPosition() + ball.getXVelocity());
-		ball.setYPosition(ball.getYPosition() + ball.getYVelocity());
+		ball.setX(ball.getX() + ball.getXVelocity());
+		ball.setY(ball.getY() + ball.getYVelocity());
 
 	}
 	/**
@@ -86,7 +86,23 @@ public class Physics {
 		return mBallOutOfBounds;
 	}
 	
-	void checkBrickBallCollision(Ball ball, Brick brick) {
+	void checkBrickBallCollision(Ball ball, float firstEdge, float secondEdge) {
+		if (ball.getYVelocity() > 0) {
+			ball.setY(firstEdge * 2 - (ball.getY() + ball.getWidth()));
+		} else {
+			ball.setY(secondEdge * 2 - (ball.getY() + ball.getHeight()));
+		}
+	}
+	
+	private void reflectX(Ball ball, float firstEdge, float secondEdge) {
+		if (ball.getXVelocity() > 0) {
+			ball.setX(firstEdge * 2 - (ball.getX() + ball.getWidth()));
+		} else {
+			ball.setX(secondEdge * 2 - ball.getX());
+		}
+	}
+	
+	private void reflectY(Ball ball) {
 		
 	}
 	
@@ -106,16 +122,16 @@ public class Physics {
 		
 		//Check X edges
 		if (mBallRightEdge > mBrickLeftEdge && mBallRightEdge < mBrickRightEdge) {
-			
+			reflectX(ball, mBrickLeftEdge, mBrickRightEdge);
 		} else if(mBallLeftEdge > mBrickLeftEdge && mBallLeftEdge < mBrickRightEdge) {
-			
+			reflectX();
 		}
 		
 		//Check Y edges
 		if (mBallBottomEdge > mBrickTopEdge && mBallBottomEdge < mBrickBottomEdge) {
-			
+			reflectY();
 		} else if (mBallTopEdge > mBrickTopEdge && mBallTopEdge < mBrickBottomEdge) {
-			
+			reflectY();
 		}
 		
 	}
