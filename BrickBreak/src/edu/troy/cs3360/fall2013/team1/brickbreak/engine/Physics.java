@@ -3,7 +3,7 @@ package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 import java.util.ArrayDeque;
 
 /**
- * This class handles the movement and collision of all objects.
+ * This class handles the movement and collision of all objects in a game level.
  * 
  * @author Dexter Parks
  * @version 1.0
@@ -62,7 +62,7 @@ public class Physics {
 	}
 	
 	
-	//-----Bounds Checking Functions
+	//-----Bounds/Collision Checking Functions
 	
 	/**
 	 * Checks to see if the ball is in bounds. If out of bounds, calculates the delta out of bounds
@@ -186,18 +186,36 @@ public class Physics {
 		
 	}
 	
-	
 	/**
-	 * Checks to see if the two objects collided.
-	 * @param box1
-	 * @param box2
-	 * @return boolean True if the objects collided
+	 * Checks to see if the ball collided with the paddle.
+	 * If collision happens, the ball is then offset based on the delta inside paddle.
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @param The ball to check
+	 * @param The paddle to check against
 	 */
-	public boolean collision(AABB box1, AABB box2) {
-		boolean isCollision = false;
-		return isCollision;
+	public void checkBallPaddleCollision(Ball ball, Paddle paddle) {
+		if (ball.getY() + ball.getHeight() <= paddle.getY()) {
+			//Check X edges
+			if (ball.getX() + ball.getWidth() > paddle.getX() &&
+				ball.getX() + ball.getWidth() < paddle.getX() + paddle.getY()) {
+					reflectX(ball, paddle.getX(), (paddle.getX() + paddle.getWidth()));
+			} else if(ball.getX() > paddle.getX() &&
+					  ball.getX() < paddle.getX() + paddle.getWidth()) {
+				reflectX(ball, paddle.getX(), (paddle.getX() + paddle.getWidth()));
+			}
+			
+			//Check Y edges
+			if (ball.getY() + ball.getHeight() > paddle.getY() &&
+				ball.getY() + ball.getHeight() < paddle.getY() + paddle.getHeight()) {
+				reflectY(ball, paddle.getY(), (paddle.getY() + paddle.getHeight()));
+			} else if (ball.getY() > paddle.getY() &&
+					   ball.getY() < paddle.getY() + paddle.getHeight()) {
+				reflectY(ball, paddle.getY(), (paddle.getY() + paddle.getHeight()));
+			}
+		}
 	}
-	
 
 	//-----Getters/Setters
 	
