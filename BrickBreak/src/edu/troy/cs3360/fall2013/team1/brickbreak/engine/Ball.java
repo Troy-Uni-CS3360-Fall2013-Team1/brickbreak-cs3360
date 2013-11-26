@@ -1,10 +1,7 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 public class Ball extends AABB {
-	
-	float mXPosition;
-	float mYPosition;
-	
+
 	float mXVelocity;
 	float mYVelocity;
 	
@@ -26,33 +23,6 @@ public class Ball extends AABB {
 		mYVelocity = yVelocity;
 	}
 
-	/**
-	 * @return the xPosition
-	 */
-	public float getXPosition() {
-		return mXPosition;
-	}
-
-	/**
-	 * @param xPosition the xPosition to set
-	 */
-	public void setXPosition(float xPosition) {
-		mXPosition = xPosition;
-	}
-
-	/**
-	 * @return the yPosition
-	 */
-	public float getYPosition() {
-		return mYPosition;
-	}
-
-	/**
-	 * @param yPosition the yPosition to set
-	 */
-	public void setYPosition(float yPosition) {
-		mYPosition = yPosition;
-	}
 
 	/**
 	 * @return the xVelocity
