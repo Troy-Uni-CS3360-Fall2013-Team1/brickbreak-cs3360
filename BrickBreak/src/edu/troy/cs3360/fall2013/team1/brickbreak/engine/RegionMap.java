@@ -74,10 +74,10 @@ public class RegionMap {
 	 * @return void
 	 */
 	private void split() {
-		int mSubWidth = mBounds.getWidth() / 2;
-		int mSubHeight = mBounds.getHeight() / 2;
-		int mX = mBounds.getX();
-		int mY = mBounds.getY();
+		float mSubWidth = mBounds.getWidth() / 2;
+		float mSubHeight = mBounds.getHeight() / 2;
+		float mX = mBounds.getX();
+		float mY = mBounds.getY();
 		
 		mNodes[0] = new RegionMap(mLevel+1, new Rectangle(mX + mSubWidth, mY, mSubWidth, mSubHeight));
 		mNodes[1] = new RegionMap(mLevel+1, new Rectangle(mX, mY, mSubWidth, mSubHeight));
@@ -93,7 +93,7 @@ public class RegionMap {
 	 * @author Dexter Parks
 	 * 
 	 * @param rectangle This is the object to locate in the RegionMap
-	 * @return
+	 * @return Returns the index of the region that the rectangle belongs to.
 	 */
 	private int getIndex(Rectangle rectangle) {
 		int index = -1;

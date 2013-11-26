@@ -25,7 +25,7 @@ public class AABB extends Rectangle {
 	 * @param width Width of the bounding box
 	 * @param height Height of the bounding box
 	 */
-	AABB(int x, int y, int width, int height) {
+	AABB(float x, float y, float width, float height) {
 		super(x, y, width, height);
 	}
 
