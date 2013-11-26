@@ -54,59 +54,35 @@ public class Physics {
 
 	}
 	/**
-	 * Checks to see if the ball is in bounds.
-	 * <ul>
-	 * <li>
-	 * 1 = left
-	 * </li>
-	 * <li>
-	 * 2 = top
-	 * </li>
-	 * <li>
-	 * 5 = right
-	 * </li>
-	 * <li>
-	 * 8 = bottom
-	 * </li>
-	 * <li>
-	 * 9 = left/bottom
-	 * </li>
-	 * <li>
-	 * 3 = left/top
-	 * </li>
-	 * <li>
-	 * 7 = right/top
-	 * </li>
-	 * <li>
-	 * 13 = right/bottom
-	 * </li>
-	 * </ul> 
+	 * Checks to see if the ball is in bounds. If out of bounds, calculates the delta out of bounds
+	 * and moves the ball back inside bounds based on the delta.
+	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
 	 * @param ball
 	 * @param boundary
 	 * @return side This integer corresponds to the side that was hit.
 	 */
-	private int checkBounds(AABB aabb, Rectangle box) {
-		int side = 0;
-		
+	private boolean checkBounds(Ball ball, Rectangle box) {
 		//Left side check
-		if (aabb.getX() < box.getX() ) {
-			side = 1;
+		if (ball.getX() < box.getX() ) {
+			ball.setX(box.getX() - ball.getX());
+			ball.setXVelocity(ball.getXVelocity() * -1);
 		}
 		//Top side check
-		else if(aabb.getY() < box.getY()) {
-			side += 2;
+		else if(ball.getY() < box.getY()) {
+			ball.setY(box.getY() - ball.getY());
+			ball.setYVelocity(ball.getYVelocity() * -1);
 		}
 		//Right side check
-		else if(aabb.getX() > box.getX() + box.getWidth()) {
-			side += 5;
+		else if(ball.getX() > box.getX() + box.getWidth()) {
+			ball.setX(box.getX() * 2 - ball.getX());
 		}
 		//Bottom side check
-		else if(aabb.getY() > box.getY() + box.getHeight()) {
-			side += 8;
+		else if(ball.getY() > box.getY() + box.getHeight()) {
+			mBallOutOfBounds = true;
 		}
-		return side;
+		return mBallOutOfBounds;
 	}
 	
 	void func(AABB aabb, Rectangle box, int side) {
