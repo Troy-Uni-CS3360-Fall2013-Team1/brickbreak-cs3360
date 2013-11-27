@@ -152,7 +152,7 @@ public class RegionMap {
 			
 			if (index != -1) {
 				mNodes[index].insert(rectangle);
-				return -1;
+				return;
 			}
 		}
 		
