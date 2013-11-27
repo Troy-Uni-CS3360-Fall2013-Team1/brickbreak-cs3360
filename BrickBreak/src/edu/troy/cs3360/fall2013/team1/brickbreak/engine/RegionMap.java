@@ -157,7 +157,7 @@ public class RegionMap {
 		}
 		
 		mObjects.add(rectangle);
-		(Brick)rectangle.setRegionNodeID(mCurrentNodeID);
+		((Brick) rectangle).setRegionNodeID(mCurrentNodeID);
 		
 		if (mObjects.size() > MAX_OBJECTS && mLevel < MAX_LEVELS) {
 			if (mNodes[0] == null) {
