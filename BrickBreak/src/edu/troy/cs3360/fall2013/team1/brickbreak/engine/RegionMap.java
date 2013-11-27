@@ -1,6 +1,7 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -20,15 +21,24 @@ import java.util.List;
  */
 public class RegionMap {
 
+	//-----Data Members
+	
 	//This determines the maximum number of objects inside any region
 	private final int MAX_OBJECTS = 10;
 	//This determines the maximum number of sub-regions
 	private final int MAX_LEVELS = 5;
+	//HashMap containing links to each container for the bricks
+	private HashMap map;
+	//NodeLevelID
+	private static int mNextNodeID;	//Next available ID for any Node
+	private int mCurrentNodeID;		//Current Node's ID
+	private int mLevel;				//Depth of the Node in the tree
+	private List mObjects;			//Bricks objects inside the current region
+	private Rectangle mBounds;		//Area representing the current region
+	private RegionMap[] mNodes;		//Current node's children
 	
-	private int mLevel;
-	private List mObjects;
-	private Rectangle mBounds;
-	private RegionMap[] mNodes;
+	
+	//-----Class Constructors
 	
 	/**
 	 * Class Constructor used to create a new region split in 4
@@ -40,14 +50,15 @@ public class RegionMap {
 	 */
 	RegionMap(int level, Rectangle bounds) {
 		mLevel = level;
+		mCurrentNodeID = mNextNodeID++;
 		mBounds = bounds;
 		mObjects = new ArrayList();
 		mNodes = new RegionMap[4];
-		
+		map = new HashMap();
 		
 	}
 	
-	//Purges the tree of all nodes/objects
+	//-----Tree Functions
 	/**
 	 * Clears all nodes in the tree.
 	 * 
@@ -63,7 +74,7 @@ public class RegionMap {
 		}
 	}
 	
-	//Once a node reaches the maximum allowed children, it then splits the region into a 4 sub-regions
+	
 	/**
 	 * Splits a region into 4 sub regions.
 	 * If a region holds more than MAX_OBJECTS and is not at the maximum
@@ -83,7 +94,6 @@ public class RegionMap {
 		mNodes[1] = new RegionMap(mLevel+1, new Rectangle(mX, mY, mSubWidth, mSubHeight));
 		mNodes[2] = new RegionMap(mLevel+1, new Rectangle(mX, mY + mSubHeight, mSubWidth, mSubHeight));
 		mNodes[3] = new RegionMap(mLevel+1, new Rectangle(mX + mSubWidth, mY + mSubHeight, mSubWidth, mSubHeight));
-		
 	}
 	
 	/**
@@ -133,20 +143,21 @@ public class RegionMap {
 	 * @author Dexter Parks
 	 * @version 1.0
 	 * @param rectangle This is the object to be inserted into the map
+	 * @return
 	 */
 	public void insert(Rectangle rectangle) {
-		// TODO Return int corresponding to a region key?
-		
+
 		if (mNodes[0] !=null) {
 			int index = getIndex(rectangle);
 			
 			if (index != -1) {
 				mNodes[index].insert(rectangle);
-				return;
+				return -1;
 			}
 		}
 		
 		mObjects.add(rectangle);
+		(Brick)rectangle.setRegionNodeID(mCurrentNodeID);
 		
 		if (mObjects.size() > MAX_OBJECTS && mLevel < MAX_LEVELS) {
 			if (mNodes[0] == null) {
@@ -199,5 +210,4 @@ public class RegionMap {
 		
 		return returnObjects;
 	}
-	//TODO Investigate hash table for constant time access to any brick
 }
