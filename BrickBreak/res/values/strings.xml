@@ -8,4 +8,13 @@
  	<string name="Score">Score</string>
     <string name="Lives"> Lives</string>
     <string name="Menu">Menu</string>
+    <string name="title_activity_menu">menu</string>
+    <string name="Start">Start</string>
+    <string name="Exit">Exit</string>
+    <string name="Help">Help</string>
+    <string name="title_activity_start">Start</string>
+    <string name="Start_hello">This is screen for starting game !!!!</string>
+    <string name="Help_hello">This is screen for Help document !!!!</string>
+    <string name="title_activity_helpact">Helpact</string>
+    
 </resources>

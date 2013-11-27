@@ -10,13 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ScoreFragment extends FragmentActivity {
-	int currentscore;
-	int currentlive;
+	int mCurrentScore;
+	int mCurrentLive;
 	TextView scoreView;
 	TextView livesView;
-    
-
-	protected void onCreate(Bundle savedInstanceState) {
+    Button mStartbutton,mHelp,mExit;
+   	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_score_fragment);
 		
@@ -28,6 +27,8 @@ public class ScoreFragment extends FragmentActivity {
 
 		 Button btnMenu;
 		 btnMenu=(Button)findViewById(R.id.button1);
+		 btnMenu=(Button)findViewById(R.id.button2);
+		 btnMenu=(Button)findViewById(R.id.button3);
 		    
 	      
 	       
@@ -42,27 +43,18 @@ public class ScoreFragment extends FragmentActivity {
 	
 	//Sample Methods to update score 
 		public void updateScore( int brickvalue) {
-			currentscore =+ brickvalue;
-			scoreView.setText(Integer.toString(currentscore));
+			mCurrentScore =+ brickvalue;
+			scoreView.setText(Integer.toString(mCurrentScore));
 		}
 
 	//update lives
-	public void updatelives( int live) {
+	public void updatelives(int live) {
 		
 	///	if (ball went out the x value)/////////////////////////////////////////////////////////////
-		{
-		currentlive = live;
-		currentlive-= 1;
-	    livesView.setText( Integer.toString(currentlive));
-	}
+		mCurrentLive = live;
+		mCurrentLive=+live;
+	    livesView.setText( Integer.toString(mCurrentLive));
 }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.score, menu);
-		return true;
-	}
-	
 }
 
