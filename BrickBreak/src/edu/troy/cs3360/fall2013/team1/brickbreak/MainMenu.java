@@ -5,6 +5,10 @@ import com.example.brickbreak.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 public class MainMenu extends Activity {
 
@@ -14,11 +18,27 @@ public class MainMenu extends Activity {
 		setContentView(R.layout.activity_main_menu);
 	}
 
-	@Override
+/*	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
+	}*/
+	public void onPopupBtClick(View view)
+	{
+		PopupMenu menu = new PopupMenu (this,view);
+		menu.getMenuInflater().inflate(R.menu.main_menu, menu.getMenu());
+		menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
+		{
+			public boolean onMenuItemClick(MenuItem item) 
+			{
+				Toast toast = Toast.makeText(MainMenu.this,
+						item.getTitle()+"was pressed",
+						Toast.LENGTH_SHORT);
+				toast.show();
+				return true;
+			}
+    });
+		menu.show();
 	}
-
 }
