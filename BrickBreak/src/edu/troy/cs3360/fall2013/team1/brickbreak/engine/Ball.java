@@ -51,4 +51,18 @@ public class Ball extends AABB {
 	public void setYVelocity(float yVelocity) {
 		this.mYVelocity = yVelocity;
 	}
+
+	/**
+	 * @return the aABB
+	 */
+	public AABB getAABB() {
+		return mAABB;
+	}
+
+	/**
+	 * @param aABB the aABB to set
+	 */
+	public void setAABB(AABB aABB) {
+		mAABB = aABB;
+	}
 }
