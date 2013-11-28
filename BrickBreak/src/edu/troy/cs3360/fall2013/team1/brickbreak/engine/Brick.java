@@ -1,17 +1,18 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
+import android.graphics.Canvas;
 
 
-public class Brick extends Rectangle {
-	
-	public Brick(float pX, float pY, float pWidth, float pHeight) {
-        super(pX, pY, pWidth, pHeight);
-        // TODO Auto-generated constructor stub
-}
-
-protected void onManagedUpdate(final float pSecondsElapsed) {
-//                if(this.collidesWith(pOtherShape))
-
-}
+public class Brick
+{
+	// creates the Canvas for us to draw on 
+	void drawRect(float left, float top, float right, float bottom)
+	{
+		
+	}
+	protected void onDraw(Canvas canvas)
+	{
+		
+	}
 
 }
