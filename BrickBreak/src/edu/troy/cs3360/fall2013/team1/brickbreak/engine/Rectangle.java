@@ -23,7 +23,7 @@ public class Rectangle {
 	 * @author Dexter Parks
 	 * @version 1.0
 	 */
-	Rectangle() {
+	public Rectangle() {
 		mX = 0;
 		mY = 0;
 		mWidth = 1;
@@ -40,7 +40,7 @@ public class Rectangle {
 	 * @param width Width of rectangle
 	 * @param height Height of rectangle
 	 */
-	Rectangle(float x, float y, float width, float height) {
+	public Rectangle(float x, float y, float width, float height) {
 		mX = x;
 		mY = y;
 		mWidth = width;
@@ -54,7 +54,7 @@ public class Rectangle {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @return int returns the x position
+	 * @return float returns the x position
 	 */
 	public float getX() {
 		return mX;
@@ -64,10 +64,10 @@ public class Rectangle {
 	 * Gets the x position
 	 * 
 	 * @author Dexter Parks
-	 * @version 1.0
-	 * @param x int value to set
+	 * @version 1.1
+	 * @param x float value to set
 	 */
-	public void setX(int x) {
+	public void setX(float x) {
 		mX = x;
 	}
 
@@ -75,8 +75,8 @@ public class Rectangle {
 	 * Gets the y position
 	 * 
 	 * @author Dexter Parks
-	 * @version 1.0
-	 * @return int returns the y position
+	 * @version 1.1
+	 * @return float returns the y position
 	 */
 	public float getY() {
 		return mY;
@@ -86,10 +86,10 @@ public class Rectangle {
 	 * Sets the y position
 	 * 
 	 * @author Dexter Parks
-	 * @version 1.0
-	 * @param y int value to set
+	 * @version 1.1
+	 * @param y float value to set
 	 */
-	public void setY(int y) {
+	public void setY(float y) {
 		mY = y;
 	}
 
@@ -109,9 +109,9 @@ public class Rectangle {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @param width int value to set
+	 * @param width float value to set
 	 */
-	public void setWidth(int width) {
+	public void setWidth(float width) {
 		mWidth = width;
 	}
 
@@ -120,7 +120,7 @@ public class Rectangle {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @return int returns the height
+	 * @return float returns the height
 	 */
 	public float getHeight() {
 		return mHeight;
@@ -131,9 +131,9 @@ public class Rectangle {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @param width int value to set
+	 * @param width float value to set
 	 */
-	public void setHeight(int height) {
+	public void setHeight(float height) {
 		mHeight = height;
 	}
 	

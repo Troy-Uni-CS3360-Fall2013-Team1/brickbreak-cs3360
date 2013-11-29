@@ -14,7 +14,7 @@ public class AABB extends Rectangle {
 	 * Default constructor.
 	 * Sets the coordinates to 0,0 and the width and height to 1
 	 */
-	AABB() {
+	public AABB() {
 		super();
 	}
 	
@@ -25,9 +25,13 @@ public class AABB extends Rectangle {
 	 * @param width Width of the bounding box
 	 * @param height Height of the bounding box
 	 */
-	AABB(float x, float y, float width, float height) {
+	public AABB(float x, float y, float width, float height) {
 		super(x, y, width, height);
 	}
+
+	//public AABB(float x, float y, float width, float height) {
+		// TODO Auto-generated constructor stub
+	//}
 
 	
 	

@@ -1,6 +1,8 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -18,17 +20,26 @@ import java.util.List;
  * @version 1.0
  * @since 2013-11-14
  */
-public class RegionMap {
+public class RegionMap<T> {
 
+	//-----Data Members
+	
 	//This determines the maximum number of objects inside any region
 	private final int MAX_OBJECTS = 10;
 	//This determines the maximum number of sub-regions
 	private final int MAX_LEVELS = 5;
+	//HashMap containing links to each container for the bricks
+	private static HashMap map = new HashMap();
+	//NodeLevelID
+	private static int mNextNodeID;		//Next available ID for any Node
+	private int mCurrentNodeID;			//Current Node's ID
+	private int mLevel;					//Depth of the Node in the tree
+	private List<T> mObjects;			//Bricks objects inside the current region
+	private Rectangle mBounds;			//Area representing the current region
+	private RegionMap<T>[] mNodes;		//Current node's children
 	
-	private int mLevel;
-	private List mObjects;
-	private Rectangle mBounds;
-	private RegionMap[] mNodes;
+	
+	//-----Class Constructors
 	
 	/**
 	 * Class Constructor used to create a new region split in 4
@@ -40,14 +51,15 @@ public class RegionMap {
 	 */
 	RegionMap(int level, Rectangle bounds) {
 		mLevel = level;
+		mCurrentNodeID = mNextNodeID++;
 		mBounds = bounds;
 		mObjects = new ArrayList();
 		mNodes = new RegionMap[4];
-		
+		map.put(mCurrentNodeID, this);
 		
 	}
 	
-	//Purges the tree of all nodes/objects
+	//-----Tree Functions
 	/**
 	 * Clears all nodes in the tree.
 	 * 
@@ -63,7 +75,7 @@ public class RegionMap {
 		}
 	}
 	
-	//Once a node reaches the maximum allowed children, it then splits the region into a 4 sub-regions
+	
 	/**
 	 * Splits a region into 4 sub regions.
 	 * If a region holds more than MAX_OBJECTS and is not at the maximum
@@ -79,11 +91,10 @@ public class RegionMap {
 		float mX = mBounds.getX();
 		float mY = mBounds.getY();
 		
-		mNodes[0] = new RegionMap(mLevel+1, new Rectangle(mX + mSubWidth, mY, mSubWidth, mSubHeight));
-		mNodes[1] = new RegionMap(mLevel+1, new Rectangle(mX, mY, mSubWidth, mSubHeight));
-		mNodes[2] = new RegionMap(mLevel+1, new Rectangle(mX, mY + mSubHeight, mSubWidth, mSubHeight));
-		mNodes[3] = new RegionMap(mLevel+1, new Rectangle(mX + mSubWidth, mY + mSubHeight, mSubWidth, mSubHeight));
-		
+		mNodes[0] = new RegionMap<T>(mLevel+1, new Rectangle(mX + mSubWidth, mY, mSubWidth, mSubHeight));
+		mNodes[1] = new RegionMap<T>(mLevel+1, new Rectangle(mX, mY, mSubWidth, mSubHeight));
+		mNodes[2] = new RegionMap<T>(mLevel+1, new Rectangle(mX, mY + mSubHeight, mSubWidth, mSubHeight));
+		mNodes[3] = new RegionMap<T>(mLevel+1, new Rectangle(mX + mSubWidth, mY + mSubHeight, mSubWidth, mSubHeight));
 	}
 	
 	/**
@@ -133,10 +144,10 @@ public class RegionMap {
 	 * @author Dexter Parks
 	 * @version 1.0
 	 * @param rectangle This is the object to be inserted into the map
+	 * @return
 	 */
 	public void insert(Rectangle rectangle) {
-		// TODO Return int corresponding to a region key?
-		
+
 		if (mNodes[0] !=null) {
 			int index = getIndex(rectangle);
 			
@@ -146,7 +157,8 @@ public class RegionMap {
 			}
 		}
 		
-		mObjects.add(rectangle);
+		mObjects.add((T) rectangle);
+		((Brick) rectangle).setRegionNodeID(mCurrentNodeID);
 		
 		if (mObjects.size() > MAX_OBJECTS && mLevel < MAX_LEVELS) {
 			if (mNodes[0] == null) {
@@ -174,7 +186,11 @@ public class RegionMap {
 	 * @param brick
 	 */
 	public void delete(Brick brick) {
-		//TODO Implement delete
+		RegionMap<T> node = (RegionMap<T>) map.get(brick.getRegionNodeID());
+		Iterator<T> it = node.mObjects.iterator();
+		if ((((Brick) it.next()).getRegionNodeID()) == brick.getRegionNodeID()) {
+			it.remove();
+		}
 	}
 	
 	/**
@@ -186,7 +202,7 @@ public class RegionMap {
 	 * @param rectangle This is the object to check which objects are in its region
 	 * @return returnObjects This is the list of objects that are in the same space as the given object
 	 */
-	public List retrieve(List returnObjects, Rectangle  rectangle) {
+	public List<T> retrieve(List<T> returnObjects, Rectangle  rectangle) {
 		int index = getIndex(rectangle);
 		
 		//Recursive, goes through each child until it reaches the last child or the object does not fit perfectly
@@ -199,5 +215,4 @@ public class RegionMap {
 		
 		return returnObjects;
 	}
-	//TODO Investigate hash table for constant time access to any brick
 }

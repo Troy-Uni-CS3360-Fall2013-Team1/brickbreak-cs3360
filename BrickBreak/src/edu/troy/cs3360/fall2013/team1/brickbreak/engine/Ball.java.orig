@@ -1,5 +1,6 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
+<<<<<<< HEAD
 
 
 import android.graphics.Canvas;
@@ -13,31 +14,29 @@ public class Ball {
 	float mXPosition;
 	float mYPosition;
 	
+=======
+public class Ball extends AABB {
+
+>>>>>>> RegionMap-Delete_Implementation
 	float mXVelocity;
 	float mYVelocity;
 	
-	AABB mAABB;
 	/**
-	 * Default constructor. Sets Origion (top left corner) to (0,0) with a size of 25x25.
+	 * Default constructor. Sets Origin (top left corner) to (0,0) with a size of 25x25.
 	 * @author Dexter Parks
 	 * @version 1.0
 	 * @since 11:39:36 PM
 	 */
 	Ball() {
-		mXPosition = 0;
-		mYPosition = 0;
-		mXVelocity = 0;
-		mYVelocity = 0;
-		mAABB = new AABB(0, 0, 25, 25);
-		
+		super();
+		mXVelocity = 1;
+		mYVelocity = 1;
 	}
 	
 	Ball(float x, float y, float xVelocity, float yVelocity, int width, int height) {
-		mXPosition = x;
-		mYPosition = y;
+		super(x, y, width, height);
 		mXVelocity = xVelocity;
 		mYVelocity = yVelocity;
-		mAABB = new AABB(x, y, width, height);
 	}
     
     void drawCircle(float cx, float cy, float radius) {
@@ -47,33 +46,6 @@ public class Ball {
     	
     }
 
-	/**
-	 * @return the xPosition
-	 */
-	public float getXPosition() {
-		return mXPosition;
-	}
-
-	/**
-	 * @param xPosition the xPosition to set
-	 */
-	public void setXPosition(float xPosition) {
-		mXPosition = xPosition;
-	}
-
-	/**
-	 * @return the yPosition
-	 */
-	public float getYPosition() {
-		return mYPosition;
-	}
-
-	/**
-	 * @param yPosition the yPosition to set
-	 */
-	public void setYPosition(float yPosition) {
-		mYPosition = yPosition;
-	}
 
 	/**
 	 * @return the xVelocity
@@ -99,9 +71,10 @@ public class Ball {
 	/**
 	 * @param yVelocity the yVelocity to set
 	 */
-	public void setyVelocity(float yVelocity) {
+	public void setYVelocity(float yVelocity) {
 		this.mYVelocity = yVelocity;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * @return the aABB
@@ -118,3 +91,6 @@ public class Ball {
 	}
 
 }
+=======
+}
+>>>>>>> RegionMap-Delete_Implementation

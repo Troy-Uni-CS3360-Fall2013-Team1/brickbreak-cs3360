@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 // height and width will change depending on what we need
 
 
-public class Ball {
+public class Ball extends AABB{
 	
 	float mXPosition;
 	float mYPosition;
@@ -16,28 +16,22 @@ public class Ball {
 	float mXVelocity;
 	float mYVelocity;
 	
-	AABB mAABB;
 	/**
-	 * Default constructor. Sets Origion (top left corner) to (0,0) with a size of 25x25.
+	 * Default constructor. Sets Origin (top left corner) to (0,0) with a size of 25x25.
 	 * @author Dexter Parks
 	 * @version 1.0
 	 * @since 11:39:36 PM
 	 */
 	Ball() {
-		mXPosition = 0;
-		mYPosition = 0;
-		mXVelocity = 0;
-		mYVelocity = 0;
-		mAABB = new AABB(0, 0, 25, 25);
-		
+		super();
+		mXVelocity = 1;
+		mYVelocity = 1;
 	}
 	
 	Ball(float x, float y, float xVelocity, float yVelocity, int width, int height) {
-		mXPosition = x;
-		mYPosition = y;
+		super(x, y, width, height);
 		mXVelocity = xVelocity;
 		mYVelocity = yVelocity;
-		mAABB = new AABB(x, y, width, height);
 	}
     
     void drawCircle(float cx, float cy, float radius) {
@@ -47,33 +41,6 @@ public class Ball {
     	
     }
 
-	/**
-	 * @return the xPosition
-	 */
-	public float getXPosition() {
-		return mXPosition;
-	}
-
-	/**
-	 * @param xPosition the xPosition to set
-	 */
-	public void setXPosition(float xPosition) {
-		mXPosition = xPosition;
-	}
-
-	/**
-	 * @return the yPosition
-	 */
-	public float getYPosition() {
-		return mYPosition;
-	}
-
-	/**
-	 * @param yPosition the yPosition to set
-	 */
-	public void setYPosition(float yPosition) {
-		mYPosition = yPosition;
-	}
 
 	/**
 	 * @return the xVelocity
@@ -99,22 +66,7 @@ public class Ball {
 	/**
 	 * @param yVelocity the yVelocity to set
 	 */
-	public void setyVelocity(float yVelocity) {
+	public void setYVelocity(float yVelocity) {
 		this.mYVelocity = yVelocity;
 	}
-
-	/**
-	 * @return the aABB
-	 */
-	public AABB getAABB() {
-		return mAABB;
-	}
-
-	/**
-	 * @param aABB the aABB to set
-	 */
-	public void setAABB(AABB aABB) {
-		mAABB = aABB;
-	}
-
 }
