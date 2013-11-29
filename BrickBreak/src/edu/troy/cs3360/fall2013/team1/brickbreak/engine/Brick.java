@@ -86,9 +86,11 @@ public class Brick extends AABB {
 
 	/**
 	 * @param brickValue the brickValue to set
+	 * @return 
 	 */
-	public void setBrickValue(int brickValue) {
+	public Brick setBrickValue(int brickValue) {
 		mBrickValue = brickValue;
+		return this;
 	}
 
 	/**
@@ -100,9 +102,11 @@ public class Brick extends AABB {
 
 	/**
 	 * @param color the color to set
+	 * @return 
 	 */
-	public void setColor(Colors color) {
+	public Brick setColor(Colors color) {
 		mColor = color;
+		return this;
 	}
 
 	/**
