@@ -18,13 +18,14 @@ public class ScoreFragment extends FragmentActivity
 	int mCurrentLive;
 	TextView scoreView;
 	TextView livesView;
+	public  class brickbreak extends FragmentActivity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_score_fragment);
 		}
-	public  class brickbreak extends FragmentActivity {
 	    @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                             Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class ScoreFragment extends FragmentActivity
 	    	public void onClick(View v) 
 	         {
 	    	  // TODO Auto-generated method stub
-	    	               }
+	    	 }
 	    	 });
 	        return inflater.inflate(R.layout.activity_score_fragment, container, false);
 	    }
@@ -60,14 +61,13 @@ public class ScoreFragment extends FragmentActivity
 	//Sample Methods to update score 
 	public void updateScore( int brickvalue)
 	 {
-		mCurrentScore =+ brickvalue;
+		mCurrentScore += brickvalue;
 		scoreView.setText(Integer.toString(mCurrentScore));
 	 }
 
 	//update lives
 	public void updatelives(int live)
 	{
-		mCurrentLive =live;
 		mCurrentLive+=live;
 	    livesView.setText( Integer.toString(mCurrentLive));
      }
