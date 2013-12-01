@@ -3,10 +3,11 @@
 
     <string name="app_name">BrickBreak</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_score">ScoreActivity</string>
- 	<string name="Score">Score</string>
-    <string name="Lives"> Lives</string>
+ 	<string name="Score">Score: </string>
+    <string name="Lives"> Lives: </string>
+    <string name="StartScore"> 00000000  </string>
+    <string name="StartLives"> 3  </string>
     <string name="Menu">Menu</string>
     <string name="title_activity_menu">menu</string>
     <string name="Start">Start</string>

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class ScoreFragment extends FragmentActivity
 {
+	
 	int mCurrentScore;
 	int mScore=0000;
 	int mLives = 3;
@@ -29,18 +30,21 @@ public class ScoreFragment extends FragmentActivity
 	    @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                             Bundle savedInstanceState) {
+	    	View view = inflater.inflate(R.layout.activity_score_fragment,
+	    	        container, false);
 	        // Inflate the layout for this fragment
 	    	setContentView(R.layout.activity_score_fragment);
-	    	scoreView = (TextView)findViewById(R.id.textView3);
+	    	scoreView = (TextView)findViewById(R.id.textViewScore);
 	    	scoreView.setText(mScore); // also can call a function return the score 
 	        
-	    	livesView = (TextView)findViewById(R.id.textView5);
+	    	livesView = (TextView)findViewById(R.id.textViewLives);
 	    	livesView.setText(mLives); // also can call a function return the score 
-
+	    	
+	    	// the buttons for what will the menu hold  
 	    	Button btnMenu;
-	    	btnMenu=(Button)findViewById(R.id.button1);
-	    	btnMenu=(Button)findViewById(R.id.button2);
-	    	btnMenu=(Button)findViewById(R.id.button3);
+	    	btnMenu=(Button)findViewById(R.id.buttonMenu);
+	    	btnMenu=(Button)findViewById(R.id.buttonMenu);
+	    	btnMenu=(Button)findViewById(R.id.buttonMenu);
 	    		    
 	    	      
 	    	// Set OnClick Listener on SignUp button 
@@ -52,8 +56,7 @@ public class ScoreFragment extends FragmentActivity
 	    	  // TODO Auto-generated method stub
 	    	 }
 	    	 });
-	        return inflater.inflate(R.layout.activity_score_fragment, container, false);
-	    }
+	        return view;
 	}
     
 
