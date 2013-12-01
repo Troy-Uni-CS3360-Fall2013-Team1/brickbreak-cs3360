@@ -14,5 +14,3 @@
         android:text="@string/activity_main_menu_start_game" />
 
 </RelativeLayout>
-
-    

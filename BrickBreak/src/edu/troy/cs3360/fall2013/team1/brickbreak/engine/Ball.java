@@ -1,7 +1,18 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
-public class Ball extends AABB {
 
+
+import android.graphics.Canvas;
+// This is to draw the shape and the position of the 
+// ball. X and Y will be changed to the input of the physics class. 
+// height and width will change depending on what we need
+
+
+public class Ball extends AABB{
+	
+	float mXPosition;
+	float mYPosition;
+	
 	float mXVelocity;
 	float mYVelocity;
 	
@@ -22,6 +33,13 @@ public class Ball extends AABB {
 		mXVelocity = xVelocity;
 		mYVelocity = yVelocity;
 	}
+    
+    void drawCircle(float cx, float cy, float radius) {
+    }
+    
+    protected void onDraw(Canvas canvas) {
+    	
+    }
 
 
 	/**
@@ -50,19 +68,5 @@ public class Ball extends AABB {
 	 */
 	public void setYVelocity(float yVelocity) {
 		this.mYVelocity = yVelocity;
-	}
-
-	/**
-	 * @return the aABB
-	 */
-	public AABB getAABB() {
-		return mAABB;
-	}
-
-	/**
-	 * @param aABB the aABB to set
-	 */
-	public void setAABB(AABB aABB) {
-		mAABB = aABB;
 	}
 }

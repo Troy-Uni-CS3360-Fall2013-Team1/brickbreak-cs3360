@@ -3,10 +3,15 @@ package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 import java.util.UUID;
 
+import android.graphics.Canvas;
+import java.util.UUID;	
+
+
 /**
  * This class defines a brick object. It extends a AABB and adds a BrickValue, color, and region id.
  * 
  * @author Dexter Parks
+ * @author Justin Williams
  * @since 11-25-13
  * @version 1.0
  */
@@ -48,6 +53,32 @@ public class Brick extends AABB {
 		mBrickID = UUID.randomUUID();
 	}
 
+	//-----Graphics Functions
+	
+	/**
+	 * Creates the Canvas for us to draw on 
+	 * @author Justin Williams
+	 * @version 1.0
+	 * @param left
+	 * @param top
+	 * @param right
+	 * @param bottom
+	 */
+	void drawRect(float left, float top, float right, float bottom)
+	{
+		
+	}
+	/**
+	 * 
+	 * @author Justin Williams
+	 * @version 1.0
+	 * @param canvas
+	 */
+	protected void onDraw(Canvas canvas)
+	{
+		
+	}
+	
 
 	//-----Getters/Setters
 	/**
