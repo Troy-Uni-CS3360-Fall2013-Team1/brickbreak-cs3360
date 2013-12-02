@@ -3,9 +3,10 @@
 
     <string name="app_name">BrickBreak</string>
     <string name="action_settings">Settings</string>
-    
-    
-    <!--activity_main_menu-->
+
+    <!-- activity_main_menu -->
     <string name="activity_main_menu_start_game">Start Game</string>
+    <string name="title_activity_game_level_host">GameLevelHost</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
