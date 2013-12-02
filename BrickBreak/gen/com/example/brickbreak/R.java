@@ -23,15 +23,19 @@ public final class R {
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int main_menu_bg=0x7f020001;
+        public static final int overflow=0x7f020002;
     }
     public static final class id {
         public static final int MasterViewGroup=0x7f080002;
-        public static final int action_settings=0x7f080007;
+        public static final int action_settings=0x7f08000a;
+        public static final int centerPoint=0x7f080007;
+        public static final int current_lives_text_view=0x7f080005;
+        public static final int current_score_text_view=0x7f080008;
         public static final int engine_fragment=0x7f080001;
         public static final int lives_text_view=0x7f080004;
-        public static final int main_menu_button=0x7f080006;
+        public static final int main_menu_button=0x7f080009;
         public static final int score_fragment=0x7f080000;
-        public static final int score_text_view=0x7f080005;
+        public static final int score_text_view=0x7f080006;
         public static final int start_button=0x7f080003;
     }
     public static final class layout {
