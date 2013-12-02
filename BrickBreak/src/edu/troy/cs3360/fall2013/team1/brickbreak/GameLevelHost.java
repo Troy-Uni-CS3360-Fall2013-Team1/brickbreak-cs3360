@@ -1,12 +1,10 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak;
 
-import com.example.brickbreak.R;
-import com.example.brickbreak.R.layout;
-import com.example.brickbreak.R.menu;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+
+import com.example.brickbreak.R;
 
 public class GameLevelHost extends Activity {
 
