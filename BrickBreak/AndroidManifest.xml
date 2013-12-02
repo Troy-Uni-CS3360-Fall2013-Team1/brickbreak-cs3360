@@ -39,6 +39,10 @@
             android:name="edu.troy.cs3360.fall2013.team1.brickbreak.ScoreActivity"
             android:label="@string/title_activity_score" >
         </activity>
+        <activity
+            android:name="edu.troy.cs3360.fall2013.team1.brickbreak.engine.EngineFragment"
+            android:label="@string/title_activity_engine_fragment" >
+        </activity>
     </application>
 
 </manifest>
