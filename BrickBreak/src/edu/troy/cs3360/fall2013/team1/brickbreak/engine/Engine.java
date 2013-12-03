@@ -197,7 +197,7 @@ public class Engine {
  */
 	public void Draw(Canvas c) {
 		
-		Resources res = null;
+		Resources res = mEngineFragment.getResources();
 		Drawable myImage = res.getDrawable(R.drawable.blue);
 		Drawable myImage2 = res.getDrawable(R.drawable.red);
 		Drawable myImage3 = res.getDrawable(R.drawable.yellow);
