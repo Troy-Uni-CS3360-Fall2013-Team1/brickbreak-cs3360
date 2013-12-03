@@ -1,6 +1,8 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 import java.util.ArrayDeque;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * This class handles the movement and collision of all objects in a game level.
@@ -74,7 +76,7 @@ public class Physics {
 	 * @param boundary
 	 * @return side This integer corresponds to the side that was hit.
 	 */
-	private boolean checkBounds(Ball ball, Rectangle box) {
+	public boolean checkBounds(Ball ball, Rectangle box) {
 		//Left side check
 		if (ball.getX() < box.getX() ) {
 			ball.setX(box.getX() - ball.getX());
@@ -136,7 +138,7 @@ public class Physics {
 	
 	
 	/**
-	 * Checks to see if the ball is colliding with deque of bricks.
+	 * Checks to see if the ball is colliding with list of bricks.
 	 * If a brick is broken, it is added to mBrokenBricks and the BrickBroken flag is set.
 	 * 
 	 * @author Dexter Parks
@@ -144,16 +146,17 @@ public class Physics {
 	 * @param The ball that could collide with bricks
 	 * @param The list of possible bricks that could collide with the ball
 	 */
-	void checkBrickBallCollision(Ball ball, ArrayDeque<Brick> brickList) {
+	void checkBrickBallCollision(Ball ball, List<Brick> list) {
 		
 		
 		float mBallLeftEdge = ball.getX();
 		float mBallRightEdge = ball.getX() + ball.getWidth();
 		float mBallTopEdge = ball.getY();
 		float mBallBottomEdge = ball.getY() + ball.getHeight();
+		Iterator<Brick> mIt = list.iterator();
 		
-		while (!brickList.isEmpty()) {
-			Brick brick = brickList.pop();
+		while (mIt.hasNext()) {
+			Brick brick = mIt.next();
 			
 			float mBrickLeftEdge = brick.getX();
 			float mBrickRightEdge = brick.getX() + brick.getWidth();
