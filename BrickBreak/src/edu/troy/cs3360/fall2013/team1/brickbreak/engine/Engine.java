@@ -36,11 +36,12 @@ public class Engine {
 	/**
 	 * 
 	 * @author Dexter Parks
-	 * @version 1.0
-	 * @since 10:11:09 PM
-	 * @param engineFragment
-	 * @param Accpets a reference to the resources in the activity
-	 * @param Accepts a rectangle representing the bounds of the view
+	 * @version 1.1
+	 * @since 12-2-13
+	 * @param engineFragment reference to the fragment
+	 * @param res a reference to the resources in the activity
+	 * @param Rectangle a rectangle representing the bounds of the view
+	 * @param Paddle a reference to the paddle
 	 */
 	public Engine(Fragment engineFragment, Resources res, Rectangle bounds, Paddle paddle) {
 		mGameWindow = bounds;

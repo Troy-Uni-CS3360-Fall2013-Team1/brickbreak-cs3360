@@ -38,12 +38,10 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
     void InitView(){
       //initialize our screen holder
       SurfaceHolder holder = getHolder();
-      holder.addCallback( this);
+      holder.addCallback(this);
 
       //initialize our game engine
-      gEngine = new Engine(null, null, , mPaddle);
-      gEngine.getBrickList();
-      gEngine.runUpdate();
+      gEngine = new Engine(mEngineFragment, context.getResources(), mBounds, mPaddle);
         
       //initialize our Thread class. A call will be made to start it later
       thread = new PaintThread(holder, context, new Handler(), gEngine);
