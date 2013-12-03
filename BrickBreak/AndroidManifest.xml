@@ -43,74 +43,7 @@
             android:name="edu.troy.cs3360.fall2013.team1.brickbreak.EngineFragment"
             android:label="@string/title_activity_engine_fragment" >
         </activity>
-    </application>
-
-     <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/red.png"/>
-     
-      <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/yellow/>
-      
-       <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Blue.png"/>
-  
-        <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Cyan.png"/>
-  
-         <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Grey.png"/>
-  
-          <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Light_Blue.png"/>
-  
-           <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Lime.png"/>
-  
-            <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Magenta.png"/>
-  
-             <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Orange.png"/>
-             
-              <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Purple.png"/>
-              
-               <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:tint="#55ff0000"
-      android:src="@drawable/Brick_Template.psd"/>
-              
+    </application>            
   
   
   
