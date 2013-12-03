@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bricklevel>
+    <!-- Row -->
     <brick>
         <xposition>20.0</xposition>
         <yposition>20.0</yposition>
@@ -7,6 +8,148 @@
         <height>20.0</height>
         <brickvalue>10.0</brickvalue>
         <color>Cyan</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>60.0</xposition>
+        <yposition>20.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Cyan</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>100.0</xposition>
+        <yposition>20.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Cyan</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>140.0</xposition>
+        <yposition>20.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Cyan</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>180.0</xposition>
+        <yposition>20.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Cyan</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <!-- Row -->
+    <brick>
+        <xposition>20.0</xposition>
+        <yposition>60.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Lime</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>60.0</xposition>
+        <yposition>60.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Lime</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>100.0</xposition>
+        <yposition>60.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Lime</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>140.0</xposition>
+        <yposition>60.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Lime</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>180.0</xposition>
+        <yposition>60.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Lime</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <!-- Row -->
+    <brick>
+        <xposition>20.0</xposition>
+        <yposition>100.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Yellow</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>60.0</xposition>
+        <yposition>100.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Yellow</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>100.0</xposition>
+        <yposition>100.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Yellow</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>140.0</xposition>
+        <yposition>100.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Yellow</color>
+        <regionnodeid>-1</regionnodeid>
+        <brickid>-1</brickid>
+    </brick>
+    <brick>
+        <xposition>180.0</xposition>
+        <yposition>100.0</yposition>
+        <width>20.0</width>
+        <height>20.0</height>
+        <brickvalue>10.0</brickvalue>
+        <color>Yellow</color>
         <regionnodeid>-1</regionnodeid>
         <brickid>-1</brickid>
     </brick>
