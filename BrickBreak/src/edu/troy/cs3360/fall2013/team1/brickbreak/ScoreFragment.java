@@ -14,33 +14,32 @@ public  class ScoreFragment extends Fragment {
 
 	int mScore=0000;
 	int mLives = 3;
-	TextView scoreView;
-	TextView livesView;
-	Button menuButton;
+	//TextView scoreView;
+	//TextView livesView;
+	//Button menuButton;
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) 
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     	View view = inflater.inflate(R.layout.activity_score_fragment, container, false);
     	
-    	scoreView = (TextView) getView().findViewById(R.id.score_text_view);
-    	scoreView.setText(mScore); // also can call a function return the score 
+    	//scoreView = (TextView) getView().findViewById(R.id.current_score_text_view);
+    	//scoreView.setText(mScore); // also can call a function return the score 
         
-    	livesView = (TextView) getView().findViewById(R.id.lives_text_view);
-    	livesView.setText(mLives); // also can call a function return the score 
+    	//livesView = (TextView) getView().findViewById(R.id.current_lives_text_view);
+    	//livesView.setText(mLives); // also can call a function return the score 
     	
     	// the buttons for what will the menu hold
-    	menuButton=(Button) getView().findViewById(R.id.main_menu_button);
+    	//menuButton=(Button) getView().findViewById(R.id.main_menu_button);
     	      
     	// Set OnClick Listener on SignUp button 
-    	menuButton.setOnClickListener(new View.OnClickListener() {
+    	/*menuButton.setOnClickListener(new View.OnClickListener() {
 	    	public void onClick(View v) {
 	    	}
-    	});
+    	});*/
         
     	return view;
 	}
@@ -51,14 +50,14 @@ public  class ScoreFragment extends Fragment {
 	public void updateScore(int brickvalue)
 	 {
 		mScore += brickvalue;
-		scoreView.setText(Integer.toString(mScore));
+		//scoreView.setText(Integer.toString(mScore));
 	 }
 
 	//update lives
 	public void updateLives(int live)
 	{
 		mLives+=live;
-	    livesView.setText( Integer.toString(mLives));
+	    //livesView.setText( Integer.toString(mLives));
      }
 }
 

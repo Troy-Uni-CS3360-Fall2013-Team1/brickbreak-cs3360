@@ -31,7 +31,15 @@ public class Engine {
 	Rectangle mGameWindow;
 	EngineFragment mEngineFragment;
 	
-	
+	/**
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @since 10:11:09 PM
+	 * @param engineFragment
+	 * @param Accpets a reference to the resources in the activity
+	 * @param Accepts a rectangle representing the bounds of the view
+	 */
 	public Engine(Fragment engineFragment, Resources res, Rectangle bounds) {
 		mGameWindow = bounds;
 		LevelBrickReadParser parser = new LevelBrickReadParser();
@@ -64,7 +72,12 @@ public class Engine {
 		}
 		
 	}
-	
+	/**
+	 * Primary method to simulate the next step in the game
+	 * 
+	 * @author Dexter Parks
+	 * @version 1.0
+	 */
 	public void runUpdate() {
 		updatePosition();
 		collisionDetection();
@@ -143,7 +156,7 @@ public class Engine {
 	}
 
 	/**
-	 * @param ball the ball to set
+	 * @param the ball to set
 	 */
 	public void setBall(Ball ball) {
 		mBall = ball;
@@ -157,7 +170,7 @@ public class Engine {
 	}
 
 	/**
-	 * @param paddle the paddle to set
+	 * @param the paddle to set
 	 */
 	public void setPaddle(Paddle paddle) {
 		mPaddle = paddle;

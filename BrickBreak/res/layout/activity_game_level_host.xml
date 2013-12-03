@@ -4,15 +4,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".GameLevelHost" >
-    <fragment
+
+    <FrameLayout
+        android:id="@+id/score_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:id="@+id/engine_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    
+    <!-- <fragment
         android:id="@+id/score_fragment"
         android:name="edu.troy.cs3360.fall2013.team1.brickbreak.ScoreFragment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <fragment 
+        android:layout_height="wrap_content"
+        tools:layout="@layout/activity_score_fragment" />
+
+    <fragment
         android:id="@+id/engine_fragment"
         android:name="edu.troy.cs3360.fall2013.team1.brickbreak.EngineFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/activity_engine_fragment" /> -->
 
 </LinearLayout>

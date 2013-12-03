@@ -41,7 +41,7 @@ public class EngineFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.activity_score_fragment, container, false);
+		View view = inflater.inflate(R.layout.activity_engine_fragment, container, false);
 		return view;
 		
 	}
@@ -66,7 +66,7 @@ public class EngineFragment extends Fragment {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @param deltaScore
+	 * @param Accepts the change in score
 	 */
 	public void updateScore(int deltaScore) {
 		mCallBack.onScoreUpdate(deltaScore);
@@ -79,7 +79,7 @@ public class EngineFragment extends Fragment {
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @param deltaScore
+	 * @param Accepts the change in lives
 	 */
 	public void updateLives(int deltaLives) {
 		mCallBack.onLivesUpdate(deltaLives);

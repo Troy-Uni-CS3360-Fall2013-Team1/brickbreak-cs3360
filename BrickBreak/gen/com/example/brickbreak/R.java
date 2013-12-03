@@ -35,10 +35,10 @@ public final class R {
         public static final int centerPoint=0x7f0a0007;
         public static final int current_lives_text_view=0x7f0a0005;
         public static final int current_score_text_view=0x7f0a0008;
-        public static final int engine_fragment=0x7f0a0001;
+        public static final int engine_fragment_container=0x7f0a0001;
         public static final int lives_text_view=0x7f0a0004;
         public static final int main_menu_button=0x7f0a0009;
-        public static final int score_fragment=0x7f0a0000;
+        public static final int score_fragment_container=0x7f0a0000;
         public static final int score_text_view=0x7f0a0006;
         public static final int start_button=0x7f0a0003;
     }
