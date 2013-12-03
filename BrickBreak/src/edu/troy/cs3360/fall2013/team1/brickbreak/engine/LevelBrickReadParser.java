@@ -8,9 +8,12 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
 public class LevelBrickReadParser {
+	
+	
 	//-----Data Constants
 	private static final String ns = null;
 	
@@ -34,6 +37,7 @@ public class LevelBrickReadParser {
 			XmlPullParser parser = Xml.newPullParser();
 			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
 			parser.setInput(in, null);
+			
 			return readLevelBrick(parser);
 		}
 			finally {
@@ -44,7 +48,10 @@ public class LevelBrickReadParser {
 	private List<Brick> readLevelBrick(XmlPullParser parser) throws XmlPullParserException, IOException {
 		List<Brick> bricks = new ArrayList<Brick>();
 		
+		parser.nextTag();
+		Log.d("edu.troy.cs3360.fall2013.team1.brickbreak.engine.xmlpullparser", parser.getPositionDescription());
 		parser.require(XmlPullParser.START_TAG, ns, "bricklevel");
+		
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if(parser.getEventType() != XmlPullParser.START_TAG) {
 				continue;
@@ -60,7 +67,7 @@ public class LevelBrickReadParser {
 			
 			
 		}
-		return null;
+		return bricks;
 	}
 
 	private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {

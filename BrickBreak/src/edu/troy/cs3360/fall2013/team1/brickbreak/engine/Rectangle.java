@@ -137,4 +137,8 @@ public class Rectangle {
 		mHeight = height;
 	}
 	
+	public String toString() {
+		return "XPOS: " + mX +" YPOS: " + mY + " WIDTH: " + mWidth + "HEIGHT: " + mHeight;
+	}
+	
 }

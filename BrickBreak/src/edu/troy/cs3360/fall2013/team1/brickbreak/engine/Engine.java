@@ -8,12 +8,16 @@ import java.util.List;
 
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.example.brickbreak.R;
 
 import edu.troy.cs3360.fall2013.team1.brickbreak.EngineFragment;
+import edu.troy.cs3360.fall2013.team1.brickbreak.GameLevelHost;
 
 public class Engine {
 
@@ -34,17 +38,19 @@ public class Engine {
 	/**
 	 * 
 	 * @author Dexter Parks
-	 * @version 1.0
-	 * @since 10:11:09 PM
-	 * @param engineFragment
-	 * @param Accpets a reference to the resources in the activity
-	 * @param Accepts a rectangle representing the bounds of the view
+	 * @version 1.1
+	 * @since 12-2-13
+	 * @param engineFragment reference to the fragment
+	 * @param res a reference to the resources in the activity
+	 * @param Rectangle a rectangle representing the bounds of the view
+	 * @param Paddle a reference to the paddle
 	 */
-	public Engine(Fragment engineFragment, Resources res, Rectangle bounds) {
-		mGameWindow = bounds;
+	public Engine(Context context, Paddle paddle) {
+		Resources res = context.getResources();
+		mEngineFragment = ((GameLevelHost) context).getEngineFragment();
+		mGameWindow = mEngineFragment.getBounds();
 		LevelBrickReadParser parser = new LevelBrickReadParser();
 		mInputStream = res.openRawResource(R.raw.level_1);
-		mEngineFragment = (EngineFragment) engineFragment;
 		try {
 			mBrickList = parser.parse(mInputStream);
 		} catch (XmlPullParserException e) {
@@ -55,14 +61,14 @@ public class Engine {
 			e.printStackTrace();
 		}
 		
-		if (mInputStream != null) {
+		if (mBrickList != null && mGameWindow != null) {
 			mRegionMap = new RegionMap<Brick>(0,mGameWindow);
 			fillRegionMap(mBrickList);
 		}
 		
 		mPhysicsEngine = new Physics();
 		mBall = new Ball();
-		mPaddle = new Paddle();
+		mPaddle = paddle;
 	}
 
 	private void fillRegionMap(List<Brick> brickList) {
@@ -79,17 +85,25 @@ public class Engine {
 	 * @version 1.0
 	 */
 	public void runUpdate() {
+		checkValidData();
 		updatePosition();
 		collisionDetection();
 	}
 
+	private void checkValidData() {
+		if (mGameWindow == null || mRegionMap == null) {
+			mGameWindow = mEngineFragment.getBounds();
+			mRegionMap = new RegionMap<Brick>(0,mGameWindow);
+		}
+		
+	}
+
 	private void updatePosition() {
 		mPhysicsEngine.moveBall(mBall);
-		mPhysicsEngine.movePaddle(mPaddle, 0);
-		//TODO Implement touch handling - Event Listener?
 	}
 
 	private void collisionDetection() {
+		Log.d("edu.troy.cs3360.fall2013.team1.brickbreak.engine.Engine", mGameWindow.toString());
 		if (mPhysicsEngine.checkBounds(mBall, mGameWindow)) {
 			updateLife(LOSE_LIFE);
 		}
@@ -174,5 +188,26 @@ public class Engine {
 	 */
 	public void setPaddle(Paddle paddle) {
 		mPaddle = paddle;
+	}
+/**
+ * @author Justin Williams
+ * @param setting the drawable image up for DrawableCanvas
+ *  //This is for gEngine.Draw(c);
+ *  
+ */
+	public void Draw(Canvas c) {
+		
+		Resources res = mEngineFragment.getResources();
+		Drawable myImage = res.getDrawable(R.drawable.blue);
+		Drawable myImage2 = res.getDrawable(R.drawable.red);
+		Drawable myImage3 = res.getDrawable(R.drawable.yellow);
+		Drawable myImage4 = res.getDrawable(R.drawable.cyan);
+		Drawable myImage5 = res.getDrawable(R.drawable.grey);
+		Drawable myImage6 = res.getDrawable(R.drawable.light_blue);
+		Drawable myImage7 = res.getDrawable(R.drawable.lime);
+		Drawable myImage8 = res.getDrawable(R.drawable.magenta);
+		Drawable myImage9 = res.getDrawable(R.drawable.orange);
+		Drawable myImage10 = res.getDrawable(R.drawable.purple);
+		
 	}
 }

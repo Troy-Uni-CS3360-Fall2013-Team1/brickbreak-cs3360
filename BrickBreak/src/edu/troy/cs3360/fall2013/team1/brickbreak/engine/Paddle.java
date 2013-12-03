@@ -32,6 +32,17 @@ public class Paddle extends AABB{
 	}
 	
 	/**
+	 * This method accepts a paddle object and a the change in position.
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @param paddle
+	 * @param dx Change in x position.
+	 */
+	public void movePaddle(float dx) {
+		mX += dx;
+	}
+	
+	/**
 	 * 
 	 * @author Justin Williams
 	 * @version 1.0
@@ -55,6 +66,4 @@ public class Paddle extends AABB{
 	{
 		
 	}
-	
-	
 }

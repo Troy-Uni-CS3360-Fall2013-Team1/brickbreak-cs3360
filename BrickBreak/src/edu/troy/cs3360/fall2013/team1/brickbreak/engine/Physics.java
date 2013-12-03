@@ -39,18 +39,6 @@ public class Physics {
 	//-----Movement Functions
 	
 	/**
-	 * This class accepts a paddle object and a the change in position.
-	 * @author Dexter Parks
-	 * @version 1.0
-	 * @param paddle
-	 * @param dx Change in x position.
-	 */
-	public void movePaddle(Paddle paddle, float dx) {
-		paddle.setX(paddle.getX() + dx);
-	}
-	
-	
-	/**
 	 * Moves the ball based on its current velocity.
 	 * 
 	 * @author Dexter Parks
