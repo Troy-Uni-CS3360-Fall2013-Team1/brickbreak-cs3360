@@ -1,7 +1,11 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
+
+import java.util.UUID;
+
 import android.graphics.Canvas;
 import java.util.UUID;	
+
 
 /**
  * This class defines a brick object. It extends a AABB and adds a BrickValue, color, and region id.
@@ -18,9 +22,7 @@ public class Brick extends AABB {
 	Colors mColor;
 	int mRegionNodeID;
 	UUID mBrickID;
-	
-	
-	
+
 	//-----Constructors
 	/**
 	 * Default constructor. Creates a Brick at (0,0) with a width/height of 1.
@@ -86,9 +88,11 @@ public class Brick extends AABB {
 
 	/**
 	 * @param brickValue the brickValue to set
+	 * @return 
 	 */
-	public void setBrickValue(int brickValue) {
+	public Brick setBrickValue(int brickValue) {
 		mBrickValue = brickValue;
+		return this;
 	}
 
 	/**
@@ -100,9 +104,11 @@ public class Brick extends AABB {
 
 	/**
 	 * @param color the color to set
+	 * @return 
 	 */
-	public void setColor(Colors color) {
+	public Brick setColor(Colors color) {
 		mColor = color;
+		return this;
 	}
 
 	/**
@@ -117,5 +123,19 @@ public class Brick extends AABB {
 	 */
 	public void setRegionNodeID(int regionNodeID) {
 		mRegionNodeID = regionNodeID;
+	}
+	
+	/**
+	 * @return the brickID
+	 */
+	public UUID getBrickID() {
+		return mBrickID;
+	}
+
+	/**
+	 * @param brickID the brickID to set
+	 */
+	public void setBrickID(UUID brickID) {
+		mBrickID = brickID;
 	}
 }
