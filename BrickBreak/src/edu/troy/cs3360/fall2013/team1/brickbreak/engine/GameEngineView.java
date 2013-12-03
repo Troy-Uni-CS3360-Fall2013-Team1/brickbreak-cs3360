@@ -28,8 +28,10 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
       holder.addCallback( this);
 
       //initialize our game engine
-      gEngine = new Engine();
-      gEngine.Init(context.getResources());
+      gEngine = new Engine(null, null, null);
+      gEngine.getBrickList();
+      gEngine.runUpdate();
+      
   
       //initialize our Thread class. A call will be made to start it later
       thread = new PaintThread(holder, context, new Handler(), gEngine);
@@ -82,5 +84,5 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
            thread.start();
        }
    }
-   gEngine.getBrickList();
+   
 }

@@ -4,16 +4,17 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
-   
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
     <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
-    
+
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
 
-    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -21,15 +22,29 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="edu.troy.cs3360.fall2013.team1.brickbreak.MainMenu"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="edu.troy.cs3360.fall2013.team1.brickbreak.GameLevelHost"
+            android:label="@string/title_activity_game_level_host"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.troy.cs3360.fall2013.team1.brickbreak.ScoreActivity"
+            android:label="@string/title_activity_score" >
+        </activity>
+        <activity
+            android:name="edu.troy.cs3360.fall2013.team1.brickbreak.EngineFragment"
+            android:label="@string/title_activity_engine_fragment" >
+        </activity>
     </application>
-    
+
      <ImageView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -99,9 +114,5 @@
   
   
   
-  
-    
-    
-
 </manifest>
 

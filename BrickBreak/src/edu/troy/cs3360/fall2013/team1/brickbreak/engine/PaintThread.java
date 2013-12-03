@@ -1,15 +1,13 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
-import java.lang.Thread;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.view.SurfaceHolder;
-import android.view.View;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.widget.LinearLayout;
 
 
 public class PaintThread extends Thread {
