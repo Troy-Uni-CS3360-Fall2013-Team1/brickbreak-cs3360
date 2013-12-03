@@ -48,14 +48,14 @@ public  class ScoreFragment extends Fragment {
 
 	
 	//Sample Methods to update score 
-	public void updateScore( int brickvalue)
+	public void updateScore(int brickvalue)
 	 {
 		mScore += brickvalue;
 		scoreView.setText(Integer.toString(mScore));
 	 }
 
 	//update lives
-	public void updatelives(int live)
+	public void updateLives(int live)
 	{
 		mLives+=live;
 	    livesView.setText( Integer.toString(mLives));

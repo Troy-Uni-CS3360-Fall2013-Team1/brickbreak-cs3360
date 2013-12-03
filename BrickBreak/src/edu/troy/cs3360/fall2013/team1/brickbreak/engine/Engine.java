@@ -8,9 +8,12 @@ import java.util.List;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.app.Fragment;
 import android.content.res.Resources;
 
 import com.example.brickbreak.R;
+
+import edu.troy.cs3360.fall2013.team1.brickbreak.EngineFragment;
 
 public class Engine {
 
@@ -26,12 +29,14 @@ public class Engine {
 	Ball mBall;
 	Paddle mPaddle;
 	Rectangle mGameWindow;
+	EngineFragment mEngineFragment;
 	
 	
-	public Engine(Resources res, Rectangle bounds) {
+	public Engine(Fragment engineFragment, Resources res, Rectangle bounds) {
 		mGameWindow = bounds;
 		LevelBrickReadParser parser = new LevelBrickReadParser();
 		mInputStream = res.openRawResource(R.raw.level_1);
+		mEngineFragment = (EngineFragment) engineFragment;
 		try {
 			mBrickList = parser.parse(mInputStream);
 		} catch (XmlPullParserException e) {
@@ -108,12 +113,11 @@ public class Engine {
 	}
 
 	private void updateScore(Brick brick) {
-		// TODO Auto-generated method stub
-		
+		mEngineFragment.updateScore(brick.getBrickValue());
 	}
 
-	private void updateLife(int loseLife) {
-		// TODO Auto-generated method stub
+	private void updateLife(int deltaLives) {
+		mEngineFragment.updateLives(deltaLives);
 		
 	}
 
