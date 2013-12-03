@@ -40,7 +40,7 @@ public class Engine {
 	 * @param Accpets a reference to the resources in the activity
 	 * @param Accepts a rectangle representing the bounds of the view
 	 */
-	public Engine(Fragment engineFragment, Resources res, Rectangle bounds) {
+	public Engine(Fragment engineFragment, Resources res, Rectangle bounds, Paddle paddle) {
 		mGameWindow = bounds;
 		LevelBrickReadParser parser = new LevelBrickReadParser();
 		mInputStream = res.openRawResource(R.raw.level_1);
@@ -62,7 +62,7 @@ public class Engine {
 		
 		mPhysicsEngine = new Physics();
 		mBall = new Ball();
-		mPaddle = new Paddle();
+		mPaddle = paddle;
 	}
 
 	private void fillRegionMap(List<Brick> brickList) {
@@ -85,8 +85,6 @@ public class Engine {
 
 	private void updatePosition() {
 		mPhysicsEngine.moveBall(mBall);
-		mPhysicsEngine.movePaddle(mPaddle, 0);
-		//TODO Implement touch handling - Event Listener?
 	}
 
 	private void collisionDetection() {
