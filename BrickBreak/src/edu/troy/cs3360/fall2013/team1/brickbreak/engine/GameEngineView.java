@@ -1,12 +1,12 @@
 package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Handler;
 import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -31,6 +31,12 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
     private float mLastTouchX;
 	private float mLastTouchY;
     
+	//Game Window Bounds
+	Rectangle mBounds;
+	
+	//Reference to Hosting Fragment
+	Fragment mEngineFragment;
+	
 	//Paddle
 	Paddle mPaddle = new Paddle();
 	
@@ -49,7 +55,15 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
    }
  
    //class constructors
-   public GameEngineView(Context contextS, AttributeSet attrs, int defStyle){
+    public GameEngineView(Context contextS, AttributeSet attrs, Fragment fragment, Rectangle Bounds){
+        super(contextS, attrs);
+        context=contextS;
+        mEngineFragment = fragment;
+        
+        InitView();
+    }
+    
+    public GameEngineView(Context contextS, AttributeSet attrs, int defStyle){
        super(contextS, attrs, defStyle);
        context=contextS;
        InitView();

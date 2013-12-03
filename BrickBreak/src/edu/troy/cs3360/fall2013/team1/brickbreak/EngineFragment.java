@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.brickbreak.R;
+
+import edu.troy.cs3360.fall2013.team1.brickbreak.engine.GameEngineView;
+import edu.troy.cs3360.fall2013.team1.brickbreak.engine.Rectangle;
 /**
  * This fragment acts as the container for the game engine.
  * 
@@ -19,7 +22,7 @@ public class EngineFragment extends Fragment {
 	
 	//-----Interfaces
 	/**
-	 * This interface acts as a liaison between an EngineFragment instance and the hosting acitivy
+	 * This interface acts as a liaison between an EngineFragment instance and the hosting activity
 	 * 
 	 * @author Dexter Parks
 	 * @version 1.0
@@ -32,6 +35,8 @@ public class EngineFragment extends Fragment {
 	
 	//------Data members
 	onScoreUpdateListener mCallBack;
+	View view;
+	Rectangle mBounds;
 	
 	//-----Life Cycle callback methods
 	@Override
@@ -41,7 +46,7 @@ public class EngineFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.activity_engine_fragment, container, false);
+		view = inflater.inflate(R.layout.activity_engine_fragment, container, false);
 		return view;
 		
 	}
@@ -57,6 +62,12 @@ public class EngineFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnScoreUpdate");
         }
+	}
+	
+	@Override
+	public void onStart() {
+		mBounds = new Rectangle(0,0,view.getWidth(),view.getHeight());
+		GameEngineView mGameEngineView = new GameEngineView(getActivity(), null, null, mBounds);
 	}
 
 	//-----Public Interfaces
@@ -84,5 +95,19 @@ public class EngineFragment extends Fragment {
 	public void updateLives(int deltaLives) {
 		mCallBack.onLivesUpdate(deltaLives);
 		
+	}
+
+	/**
+	 * @return the bounds
+	 */
+	public Rectangle getBounds() {
+		return mBounds;
+	}
+
+	/**
+	 * @param bounds the bounds to set
+	 */
+	public void setBounds(Rectangle bounds) {
+		mBounds = bounds;
 	}
 }
