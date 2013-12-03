@@ -24,6 +24,12 @@ public class Engine {
 	//-----Constants
 	private static final int LOSE_LIFE = -1;
 	private static final int GAIN_LIFE = 1;
+	private static final float BALL_INIT_X = 0;
+	private static final float BALL_INIT_Y = 0;
+	private static final float BALL_INIT_X_VELOCITY = 0;
+	private static final float BALL_INIT_Y_VELOCITY = 0;
+	private static final float PADDLE_INIT_X = 0;
+	private static final float PADDLE_INIT_Y = 0;
 	
 	//-----Data Members
 	List<Brick> mBrickList;
@@ -34,6 +40,7 @@ public class Engine {
 	Paddle mPaddle;
 	Rectangle mGameWindow;
 	EngineFragment mEngineFragment;
+	private boolean mBallOutOfBounds;
 	
 	/**
 	 * 
@@ -65,12 +72,25 @@ public class Engine {
 			mRegionMap = new RegionMap<Brick>(0,mGameWindow);
 			fillRegionMap(mBrickList);
 		}
-		
+		mBallOutOfBounds = false;
 		mPhysicsEngine = new Physics();
 		mBall = new Ball();
 		mPaddle = paddle;
+		
+		reset();
 	}
 
+	public void reset() {
+		mBall.setX(BALL_INIT_X);
+		mBall.setY(BALL_INIT_Y);
+		mBall.setXVelocity(BALL_INIT_X_VELOCITY);
+		mBall.setYVelocity(BALL_INIT_Y_VELOCITY);
+		
+		mPaddle.setX(PADDLE_INIT_X);
+		mPaddle.setY(PADDLE_INIT_Y);
+		
+	}
+	
 	private void fillRegionMap(List<Brick> brickList) {
 		Iterator<Brick> mIt = brickList.iterator();
 		while(mIt.hasNext()) {
@@ -106,6 +126,7 @@ public class Engine {
 		Log.d("edu.troy.cs3360.fall2013.team1.brickbreak.engine.Engine", mGameWindow.toString());
 		if (mPhysicsEngine.checkBounds(mBall, mGameWindow)) {
 			updateLife(LOSE_LIFE);
+			mBallOutOfBounds  = true;
 		}
 		mPhysicsEngine.checkBallPaddleCollision(mBall, mPaddle);
 		if (mPhysicsEngine.checkBounds(mBall, mGameWindow)) {
@@ -189,6 +210,20 @@ public class Engine {
 	public void setPaddle(Paddle paddle) {
 		mPaddle = paddle;
 	}
+/**
+	 * @return the ballOutOfBounds
+	 */
+	public boolean isBallOutOfBounds() {
+		return mBallOutOfBounds;
+	}
+
+	/**
+	 * @param ballOutOfBounds the ballOutOfBounds to set
+	 */
+	public void setBallOutOfBounds(boolean ballOutOfBounds) {
+		mBallOutOfBounds = ballOutOfBounds;
+	}
+
 /**
  * @author Justin Williams
  * @param setting the drawable image up for DrawableCanvas

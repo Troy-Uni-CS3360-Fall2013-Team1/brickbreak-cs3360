@@ -57,6 +57,9 @@ public class PaintThread extends Thread {
 	           long beforeTime = System.nanoTime();
 	           //This is where we update the game engine
 	           gEngine.runUpdate();
+	           if (gEngine.isBallOutOfBounds()) {
+	        	   gEngine.reset();
+	           }
 
 	     //DRAW
 	     Canvas c = null;
