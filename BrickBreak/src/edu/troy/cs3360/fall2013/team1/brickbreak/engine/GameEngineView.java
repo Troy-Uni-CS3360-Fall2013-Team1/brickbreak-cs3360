@@ -41,7 +41,7 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
       holder.addCallback( this);
 
       //initialize our game engine
-      gEngine = new Engine(null, null, null);
+      gEngine = new Engine(null, null, , mPaddle);
       gEngine.getBrickList();
       gEngine.runUpdate();
         

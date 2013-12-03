@@ -10,6 +10,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.app.Fragment;
 import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 
 import com.example.brickbreak.R;
 
@@ -172,5 +174,26 @@ public class Engine {
 	 */
 	public void setPaddle(Paddle paddle) {
 		mPaddle = paddle;
+	}
+/**
+ * @author Justin Williams
+ * @param setting the drawable image up for DrawableCanvas
+ *  //This is for gEngine.Draw(c);
+ *  
+ */
+	public void Draw(Canvas c) {
+		
+		Resources res = null;
+		Drawable myImage = res.getDrawable(R.drawable.blue);
+		Drawable myImage2 = res.getDrawable(R.drawable.red);
+		Drawable myImage3 = res.getDrawable(R.drawable.yellow);
+		Drawable myImage4 = res.getDrawable(R.drawable.cyan);
+		Drawable myImage5 = res.getDrawable(R.drawable.grey);
+		Drawable myImage6 = res.getDrawable(R.drawable.light_blue);
+		Drawable myImage7 = res.getDrawable(R.drawable.lime);
+		Drawable myImage8 = res.getDrawable(R.drawable.magenta);
+		Drawable myImage9 = res.getDrawable(R.drawable.orange);
+		Drawable myImage10 = res.getDrawable(R.drawable.purple);
+		
 	}
 }

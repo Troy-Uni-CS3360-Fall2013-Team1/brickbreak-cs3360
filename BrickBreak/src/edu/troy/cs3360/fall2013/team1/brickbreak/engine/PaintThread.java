@@ -2,7 +2,6 @@ package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -69,6 +68,13 @@ public class PaintThread extends Thread {
 	                c.drawRect(0, 0, c.getWidth(), c.getHeight(), blackPaint);
 	                //This is where we draw the game engine.
 	                gEngine.Draw(c);
+	                /*
+	                 * This is what the engine class item goes to
+	                 * 
+	                 * 
+	                 * 
+	                 * Making the big space for you to notice
+	                 */
 	         }
 	     } finally {
 	         // do this in a finally so that if an exception is thrown

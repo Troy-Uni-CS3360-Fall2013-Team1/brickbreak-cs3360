@@ -11,6 +11,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import android.util.Xml;
 
 public class LevelBrickReadParser {
+	
+	
 	//-----Data Constants
 	private static final String ns = null;
 	
