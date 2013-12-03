@@ -3,13 +3,13 @@ package edu.troy.cs3360.fall2013.team1.brickbreak;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.brickbreak.R;
 
-import edu.troy.cs3360.fall2013.team1.brickbreak.engine.GameEngineView;
 import edu.troy.cs3360.fall2013.team1.brickbreak.engine.Rectangle;
 /**
  * This fragment acts as the container for the game engine.
@@ -66,8 +66,10 @@ public class EngineFragment extends Fragment {
 	
 	@Override
 	public void onStart() {
+		super.onStart();
 		mBounds = new Rectangle(0,0,view.getWidth(),view.getHeight());
-		GameEngineView mGameEngineView = new GameEngineView(getActivity(), null, null, mBounds);
+		Log.d("edu.troy.cs3360.fall2013.team1.brickbreak.engine.Engine", mBounds.toString());
+		//GameEngineView mGameEngineView = new GameEngineView(getActivity(), null, null, mBounds);
 	}
 
 	//-----Public Interfaces

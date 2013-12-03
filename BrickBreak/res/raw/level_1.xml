@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <bricklevel>
     <brick>
         <xposition>20.0</xposition>
         <yposition>20.0</yposition>
         <width>20.0</width>
         <height>20.0</height>
-        <brickvalue>10.0</brickvalue>
+        <brickvalue>10</brickvalue>
         <color>Cyan</color>
         <regionnodeid>-1</regionnodeid>
         <brickid>-1</brickid>

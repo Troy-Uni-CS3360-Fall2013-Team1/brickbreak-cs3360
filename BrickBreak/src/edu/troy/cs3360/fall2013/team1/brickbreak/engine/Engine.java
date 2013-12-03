@@ -8,14 +8,16 @@ import java.util.List;
 
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.example.brickbreak.R;
 
 import edu.troy.cs3360.fall2013.team1.brickbreak.EngineFragment;
+import edu.troy.cs3360.fall2013.team1.brickbreak.GameLevelHost;
 
 public class Engine {
 
@@ -43,11 +45,12 @@ public class Engine {
 	 * @param Rectangle a rectangle representing the bounds of the view
 	 * @param Paddle a reference to the paddle
 	 */
-	public Engine(Fragment engineFragment, Resources res, Rectangle bounds, Paddle paddle) {
-		mGameWindow = bounds;
+	public Engine(Context context, Paddle paddle) {
+		Resources res = context.getResources();
+		mEngineFragment = ((GameLevelHost) context).getEngineFragment();
+		mGameWindow = mEngineFragment.getBounds();
 		LevelBrickReadParser parser = new LevelBrickReadParser();
 		mInputStream = res.openRawResource(R.raw.level_1);
-		mEngineFragment = (EngineFragment) engineFragment;
 		try {
 			mBrickList = parser.parse(mInputStream);
 		} catch (XmlPullParserException e) {
@@ -58,7 +61,7 @@ public class Engine {
 			e.printStackTrace();
 		}
 		
-		if (mInputStream != null) {
+		if (mBrickList != null && mGameWindow != null) {
 			mRegionMap = new RegionMap<Brick>(0,mGameWindow);
 			fillRegionMap(mBrickList);
 		}
@@ -82,8 +85,17 @@ public class Engine {
 	 * @version 1.0
 	 */
 	public void runUpdate() {
+		checkValidData();
 		updatePosition();
 		collisionDetection();
+	}
+
+	private void checkValidData() {
+		if (mGameWindow == null || mRegionMap == null) {
+			mGameWindow = mEngineFragment.getBounds();
+			mRegionMap = new RegionMap<Brick>(0,mGameWindow);
+		}
+		
 	}
 
 	private void updatePosition() {
@@ -91,6 +103,7 @@ public class Engine {
 	}
 
 	private void collisionDetection() {
+		Log.d("edu.troy.cs3360.fall2013.team1.brickbreak.engine.Engine", mGameWindow.toString());
 		if (mPhysicsEngine.checkBounds(mBall, mGameWindow)) {
 			updateLife(LOSE_LIFE);
 		}

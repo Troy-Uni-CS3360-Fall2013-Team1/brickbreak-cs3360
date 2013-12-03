@@ -35,7 +35,7 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
 	Rectangle mBounds;
 	
 	//Reference to Hosting Fragment
-	Fragment mEngineFragment;
+	//Fragment mEngineFragment;
 	
 	//Paddle
 	Paddle mPaddle = new Paddle();
@@ -47,7 +47,7 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
       holder.addCallback(this);
 
       //initialize our game engine
-      gEngine = new Engine(mEngineFragment, context.getResources(), mBounds, mPaddle);
+      gEngine = new Engine(context, mPaddle);
         
       //initialize our Thread class. A call will be made to start it later
       thread = new PaintThread(holder, context, new Handler(), gEngine);
@@ -58,8 +58,6 @@ public class GameEngineView extends SurfaceView implements SurfaceHolder.Callbac
     public GameEngineView(Context contextS, AttributeSet attrs, Fragment fragment, Rectangle Bounds){
         super(contextS, attrs);
         context=contextS;
-        mEngineFragment = fragment;
-        
         InitView();
     }
     
