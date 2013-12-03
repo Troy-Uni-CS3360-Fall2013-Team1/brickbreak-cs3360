@@ -14,6 +14,11 @@ public class LevelBrickReadParser {
 	//-----Data Constants
 	private static final String ns = null;
 	
+	//-----Constructors
+	public LevelBrickReadParser(){
+		
+	}
+	
 	/**
 	 * This class takes an input stream and parses it into an ArrayList of Bricks.
 	 * @author Dexter Parks

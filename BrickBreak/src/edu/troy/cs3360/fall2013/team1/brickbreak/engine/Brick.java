@@ -22,9 +22,7 @@ public class Brick extends AABB {
 	Colors mColor;
 	int mRegionNodeID;
 	UUID mBrickID;
-	
-	
-	
+
 	//-----Constructors
 	/**
 	 * Default constructor. Creates a Brick at (0,0) with a width/height of 1.
@@ -125,5 +123,19 @@ public class Brick extends AABB {
 	 */
 	public void setRegionNodeID(int regionNodeID) {
 		mRegionNodeID = regionNodeID;
+	}
+	
+	/**
+	 * @return the brickID
+	 */
+	public UUID getBrickID() {
+		return mBrickID;
+	}
+
+	/**
+	 * @param brickID the brickID to set
+	 */
+	public void setBrickID(UUID brickID) {
+		mBrickID = brickID;
 	}
 }
