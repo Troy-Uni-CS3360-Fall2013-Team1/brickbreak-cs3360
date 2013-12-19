@@ -244,5 +244,9 @@ public class Engine {
 		Drawable myImage9 = res.getDrawable(R.drawable.orange);
 		Drawable myImage10 = res.getDrawable(R.drawable.purple);
 		
+		Iterator<Brick> mBrickListIt = mBrickList.iterator();
+		while(mBrickListIt.hasNext()) {
+			Drawable brick;
+		}
 	}
 }
