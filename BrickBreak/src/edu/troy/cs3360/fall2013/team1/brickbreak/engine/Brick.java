@@ -2,9 +2,10 @@ package edu.troy.cs3360.fall2013.team1.brickbreak.engine;
 
 
 import java.util.UUID;
-
+import android.content.res.Resources;
 import android.graphics.Canvas;
-import java.util.UUID;	
+import android.graphics.drawable.Drawable;
+import com.example.brickbreak.R;
 
 
 /**
@@ -22,6 +23,7 @@ public class Brick extends AABB {
 	Colors mColor;
 	int mRegionNodeID;
 	UUID mBrickID;
+	Resources mRes;
 
 	//-----Constructors
 	/**
@@ -68,15 +70,38 @@ public class Brick extends AABB {
 	}
 	/**
 	 * 
-	 * @author Justin Williams
+	 * @author Dexter Parks
 	 * @version 1.0
 	 * @param canvas
 	 */
-	protected void onDraw(Canvas canvas)
-	{
+	protected void onDraw(Canvas canvas) {
 		
 	}
 	
+	protected Drawable getResColor(Colors color) {
+		Drawable res;
+		if (color == Colors.Blue) {
+			res = mRes.getDrawable(R.drawable.blue);
+		} else if (color == Colors.Cyan) {
+			res = mRes.getDrawable(R.drawable.cyan);
+		} else if (color == Colors.Light_Blue) {
+			res = mRes.getDrawable(R.drawable.light_blue);
+		} else if (color == Colors.Lime) {
+			res = mRes.getDrawable(R.drawable.lime);
+		} else if (color == Colors.Orange) {
+			res = mRes.getDrawable(R.drawable.orange);
+		} else if (color == Colors.Purple) {
+			res = mRes.getDrawable(R.drawable.purple);
+		} else if (color == Colors.Red) {
+			res = mRes.getDrawable(R.drawable.red);
+		} else if (color == Colors.Yellow) {
+			res = mRes.getDrawable(R.drawable.yellow);
+		} else {
+			res = mRes.getDrawable(R.drawable.grey);
+		}
+		
+		return res;
+	}
 
 	//-----Getters/Setters
 	/**
@@ -137,5 +162,14 @@ public class Brick extends AABB {
 	 */
 	public void setBrickID(UUID brickID) {
 		mBrickID = brickID;
+	}
+
+	public Resources getRes() {
+		return mRes;
+	}
+
+	public Brick setRes(Resources res) {
+		mRes = res;
+		return this;
 	}
 }

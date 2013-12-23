@@ -8,6 +8,8 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 import android.util.Xml;
 
@@ -16,6 +18,10 @@ public class LevelBrickReadParser {
 	
 	//-----Data Constants
 	private static final String ns = null;
+	
+	//-----Data Members
+	Context mContext;
+	Resources mRes;
 	
 	//-----Constructors
 	public LevelBrickReadParser(){
@@ -26,13 +32,38 @@ public class LevelBrickReadParser {
 	 * This class takes an input stream and parses it into an ArrayList of Bricks.
 	 * @author Dexter Parks
 	 * @version 1.0
-	 * @param The input stream of the XML brick level.
+	 * @param in The input stream of the XML brick level.
 	 * @return Returns an ArrayList of bricks.
 	 * @throws XmlPullParserException
 	 * @throws IOException
 	 */
 	public List<Brick> parse(InputStream in) throws XmlPullParserException, IOException {
 		
+		try {
+			XmlPullParser parser = Xml.newPullParser();
+			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+			parser.setInput(in, null);
+			
+			return readLevelBrick(parser);
+		}
+			finally {
+			in.close();
+		}
+	}
+	
+	/**
+	 * This class takes an input stream and parses it into an ArrayList of Bricks.
+	 * @param in The input stream of the XML brick level.
+	 * @param context The context of the activity.
+	 * @return Returns an ArrayList of bricks.
+	 * @author Dexter Parks
+	 * @version 1.0
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public List<Brick> parse(InputStream in, Context context) throws XmlPullParserException, IOException {
+		mContext = context;
+		mRes = context.getResources();
 		try {
 			XmlPullParser parser = Xml.newPullParser();
 			parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -117,7 +148,7 @@ public class LevelBrickReadParser {
 				mColor = readColor(parser);
 			}
 		}
-		return new Brick(mXPosition, mYPosition, mWidth, mHeight).setBrickValue(mBrickValue).setColor(mColor);
+		return new Brick(mXPosition, mYPosition, mWidth, mHeight).setBrickValue(mBrickValue).setColor(mColor).setRes(mRes);
 	}
 
 	

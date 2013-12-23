@@ -59,7 +59,7 @@ public class Engine {
 		LevelBrickReadParser parser = new LevelBrickReadParser();
 		mInputStream = res.openRawResource(R.raw.level_1);
 		try {
-			mBrickList = parser.parse(mInputStream);
+			mBrickList = parser.parse(mInputStream, context);
 		} catch (XmlPullParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -246,7 +246,9 @@ public class Engine {
 		
 		Iterator<Brick> mBrickListIt = mBrickList.iterator();
 		while(mBrickListIt.hasNext()) {
-			Drawable brick;
+			Brick brick = mBrickListIt.next();
+			brick.onDraw(c);
+			brick.Draw();
 		}
 	}
 }
