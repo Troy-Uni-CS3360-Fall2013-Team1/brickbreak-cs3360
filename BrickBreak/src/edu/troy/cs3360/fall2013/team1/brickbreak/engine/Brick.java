@@ -74,30 +74,30 @@ public class Brick extends AABB {
 	 * @version 1.0
 	 * @param canvas
 	 */
-	protected void onDraw(Canvas canvas) {
-		
+	public int getBrickResId() {
+		return getBrickColor(mColor);
 	}
 	
-	protected Drawable getResColor(Colors color) {
-		Drawable res;
+	private int getBrickColor(Colors color) {
+		int res;
 		if (color == Colors.Blue) {
-			res = mRes.getDrawable(R.drawable.blue);
+			res = R.drawable.blue;
 		} else if (color == Colors.Cyan) {
-			res = mRes.getDrawable(R.drawable.cyan);
+			res = R.drawable.cyan;
 		} else if (color == Colors.Light_Blue) {
-			res = mRes.getDrawable(R.drawable.light_blue);
+			res =R.drawable.light_blue;
 		} else if (color == Colors.Lime) {
-			res = mRes.getDrawable(R.drawable.lime);
+			res = R.drawable.lime;
 		} else if (color == Colors.Orange) {
-			res = mRes.getDrawable(R.drawable.orange);
+			res = R.drawable.orange;
 		} else if (color == Colors.Purple) {
-			res = mRes.getDrawable(R.drawable.purple);
+			res = R.drawable.purple;
 		} else if (color == Colors.Red) {
-			res = mRes.getDrawable(R.drawable.red);
+			res = R.drawable.red;
 		} else if (color == Colors.Yellow) {
-			res = mRes.getDrawable(R.drawable.yellow);
+			res = R.drawable.yellow;
 		} else {
-			res = mRes.getDrawable(R.drawable.grey);
+			res = R.drawable.grey;
 		}
 		
 		return res;
